@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PassWraith.Utilities
 {
-    public class PasswordHelper
+    internal class PasswordHelper
     {
         public static string EncryptPassword(string password)
         {
@@ -23,13 +22,50 @@ namespace PassWraith.Utilities
             return passwordMatches;
         }
 
-        public static string EncryptString(string plainText, string key)
+        public static byte[] DeriveKeyFromPassword(string password, string secretKey)
+        {
+            const int iterations = 10000;
+            const int keySize = 32;
+
+            using (var pbkdf2 = new Rfc2898DeriveBytes(password, Encoding.UTF8.GetBytes(secretKey), iterations))
+            {
+                byte[] keyBytes = pbkdf2.GetBytes(keySize);
+                return keyBytes;
+            }
+        }
+
+        public static SecureString ConvertToSecureString(string value)
+        {
+            var secureString = new SecureString();
+            foreach (char c in value)
+            {
+                secureString.AppendChar(c);
+            }
+            secureString.MakeReadOnly();
+            return secureString;
+        }
+
+        public static string ConvertToUnsecureString(SecureString secureString)
+        {
+            IntPtr unmanagedString = IntPtr.Zero;
+            try
+            {
+                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);
+                return Marshal.PtrToStringUni(unmanagedString);
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+            }
+        }
+
+        public static string EncryptString(string plainText, byte[] key)
         {
             byte[] encryptedBytes;
 
             using (var aes = Aes.Create())
             {
-                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.Key = key;
                 aes.Mode = CipherMode.CBC;
 
                 byte[] iv = aes.IV;
@@ -55,13 +91,13 @@ namespace PassWraith.Utilities
             return Convert.ToBase64String(encryptedBytes);
         }
 
-        public static string DecryptString(string encryptedText, string key)
+        public static string DecryptString(string encryptedText, byte[] key)
         {
             byte[] encryptedBytes = Convert.FromBase64String(encryptedText);
 
             using (var aes = Aes.Create())
             {
-                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.Key = key;
                 aes.Mode = CipherMode.CBC;
 
                 byte[] iv = new byte[aes.BlockSize / 8];
