@@ -8,23 +8,23 @@ namespace PassWraith.Utilities
 {
     public class PasswordHelper
     {
-        //public static string EncryptPassword(string password)
-        //{
-        //    // Generate a random salt
-        //    string salt = BCrypt.Net.BCrypt.GenerateSalt();
+        public static string EncryptPassword(string password)
+        {
+            // Generate a random salt
+            string salt = BCrypt.Net.BCrypt.GenerateSalt();
 
-        //    // Hash the password using the generated salt
-        //    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, salt);
+            // Hash the password using the generated salt
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, salt);
 
-        //    return hashedPassword;
-        //}
+            return hashedPassword;
+        }
 
-        //public static bool VerifyPassword(string password, string hashedPassword)
-        //{
-        //    // Verify the provided password against the hashed password
-        //    bool passwordMatches = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+        public static bool VerifyPassword(string password, string hashedPassword)
+        {
+            // Verify the provided password against the hashed password
+            bool passwordMatches = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
 
-        //    return passwordMatches;
-        //}
+            return passwordMatches;
+        }
     }
 }
