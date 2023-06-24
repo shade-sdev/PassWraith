@@ -68,10 +68,10 @@ jobs:
     - name: Determine release name
       id: set_release_name
       run: |
-        if [ "${{ matrix.configuration }}" == "Debug" ]; then
-          echo "Debug v1.0.0"
+        if: ${{ matrix.configuration == 'Debug' }}
+        echo "Debug v1.0.0"
         else
-          echo "Release v1.0.0"
+        echo "Release v1.0.0"
         fi
 
     # Create a release
