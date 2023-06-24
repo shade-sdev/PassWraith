@@ -7,22 +7,19 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
-
     strategy:
       matrix:
         configuration: [Debug, Release]
 
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: windows-latest
 
     env:
-      Solution_Name: PassWraith.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: PasswraithPackaging    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: PasswraithPackaging\PasswraithPackaging.wapproj                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-   
+      Solution_Name: PassWraith.sln
+      Test_Project_Path: your-test-project-path
+      Wap_Project_Directory: PasswraithPackaging
+      Wap_Project_Path: PasswraithPackaging\PasswraithPackaging.wapproj
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -35,18 +32,17 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    # Add MSBuild to the PATH
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
 
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    # Restore the application
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
 
-
-    # Create the app package by building and packaging the Windows Application Packaging project
+    # Create the app package
     - name: Create the app package
       run: msbuild $env:Wap_Project_Path /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx /p:PackageCertificatePassword=${{ secrets.Pfx_Key }}
       env:
@@ -55,34 +51,49 @@ jobs:
         Appx_Package_Build_Mode: StoreUpload
         Configuration: ${{ matrix.configuration }}
 
-    # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
+    # Upload the MSIX package
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
-        
-        
-        # Create a release
+        path: ${{ env.Wap_Project_Directory }}/AppPackages
+
+    # Delete all releases and tags
+    - name: Delete releases and tags
+      run: |
+        git tag -l | xargs git tag -d
+        git fetch --all --prune --tags
+
+    # Determine the release name based on configuration
+    - name: Determine release name
+      id: set_release_name
+      run: |
+        if [ "${{ matrix.configuration }}" == "Debug" ]; then
+          echo "::set-output name=release_name::Debug v1.0.0"
+        else
+          echo "::set-output name=release_name::Release v1.0.0"
+        }
+
+    # Create a release
     - name: Create release
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v1.0.0  # Replace with a valid tag name (e.g., v1.0.0)
-        release_name: Release v1.0.0
+        tag_name: v1.0.0
+        release_name: ${{ steps.set_release_name.outputs.release_name }}
         draft: false
         prerelease: false
-        
-       # Upload the MSIX package as a release asset
+
+    # Upload the MSIX package as a release asset
     - name: Upload release asset
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ${{ env.Wap_Project_Directory }}/AppPackages/PasswraithPackaging_1.0.0.0_Debug_Test\PasswraithPackaging_1.0.0.0_x86_Debug.msixbundle
         asset_name: MSIX Package.msix
-        asset_content_type: application/vnd.ms-appx 
+        asset_content_type: application/vnd.ms-appx
