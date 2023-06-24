@@ -80,6 +80,7 @@ jobs:
     # Upload the MSIX package as a release asset
     - name: Upload release asset
       id: upload_release_asset
+      if: matrix.configuration == 'Release'
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
