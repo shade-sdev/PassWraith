@@ -59,21 +59,17 @@ jobs:
 #         path: ${{ env.Wap_Project_Directory }}/AppPackages
 
     # Delete all releases and tags
-    - name: Delete releases and tags
+    - name: Delete releases
       run: |
-        git clone https://github.com/shade-sdev/PassWraith.git repo
-        cd repo
+          # Delete all releases
+          for release in $(git ls-remote --tags origin | awk '{print $2}' | grep -E "refs/tags/v[0-9.]+"); do
+            release=${release#refs/tags/}
+            echo "Deleting release: $release"
+            git push --delete origin "$release"
+          done
 
-        # Delete releases
-        git ls-remote --tags origin | awk -F/ '{print $NF}' | grep -vE "({^|^{)" | while read -r release; do
-          echo "Deleting release: $release"
-          git push --delete origin "$release"
-        done
-
-        # Delete tags
-        git tag -l | xargs -r git tag -d
-        git fetch --prune --tags
-        git push --prune --tags
+          # Delete all tags
+          git tag -l | xargs -I{} git push origin :refs/tags/{}
 
 
     # Create a release
