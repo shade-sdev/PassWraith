@@ -61,8 +61,20 @@ jobs:
     # Delete all releases and tags
     - name: Delete releases and tags
       run: |
-        git tag -l | xargs git tag -d
-        git fetch --all --prune --tags
+        git clone https://github.com/shade-sdev/PassWraith.git repo
+        cd repo
+
+        # Delete releases
+        for release in $(git ls-remote --tags origin | awk -F/ '{print $NF}' | grep -vE "(\{\^|\^\{)") ; do
+          echo "Deleting release: $release"
+          git push --delete origin "$release"
+        done
+
+        # Delete tags
+        git tag -l | xargs -r git tag -d
+        git fetch --prune --tags
+        git push --prune --tags
+
 
     # Create a release
     - name: Create release
