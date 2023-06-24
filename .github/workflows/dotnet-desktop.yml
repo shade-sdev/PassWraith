@@ -65,7 +65,7 @@ jobs:
         cd repo
 
         # Delete releases
-        for (release in $(git ls-remote --tags origin | awk -F/ '{print $NF}' | grep -vE "(\{\^|\^\{)")) ; do
+        git ls-remote --tags origin | awk -F/ '{print $NF}' | grep -vE "({^|^{)" | while read -r release; do
           echo "Deleting release: $release"
           git push --delete origin "$release"
         done
