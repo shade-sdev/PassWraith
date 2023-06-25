@@ -215,7 +215,7 @@ namespace PassWraith.Controls.MouseEvents
             await Task.Run(() =>
             {
                 this.selectedPasswordEntity = _context.Get(int.Parse(passHead.Name));
-                dependencies.StarPicBox.Image = selectedPasswordEntity.IsFavourite ? Resources.icons8_star_60px : Resources.icons8_star_480px;
+                dependencies.StarPicBox.Image = !selectedPasswordEntity.IsFavourite ? Resources.icons8_star_60px : Resources.icons8_star_480px;
                 dependencies.FlpMain.BeginInvoke((MethodInvoker)delegate
                 {
                     ResetPanelData();
@@ -276,7 +276,7 @@ namespace PassWraith.Controls.MouseEvents
             {
                 if (selectedPasswordEntity == null) return;
                 _context.SetFavourite(selectedPasswordEntity.Id);
-                dependencies.StarPicBox.Image = selectedPasswordEntity.IsFavourite ? Resources.icons8_star_60px : Resources.icons8_star_480px;
+                dependencies.StarPicBox.Image = !selectedPasswordEntity.IsFavourite ? Resources.icons8_star_60px : Resources.icons8_star_480px;
             });
 
         }
