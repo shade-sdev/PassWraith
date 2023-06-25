@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PassWraith.Data;
 using PassWraith.Forms;
+using PassWraith.Utilities;
 using System;
 using System.Windows.Forms;
 
@@ -39,6 +40,7 @@ namespace PassWraith
             services.AddScoped<PassWraith>();
             services.AddScoped<Register>();
             services.AddScoped<Login>();
+            services.AddScoped<PasswordHelper>();
             serviceProvider = services.BuildServiceProvider();
         }
     }

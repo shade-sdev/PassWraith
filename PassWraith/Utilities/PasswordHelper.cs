@@ -5,6 +5,7 @@
  * Description: Provides utility methods for password management and encryption operations.
  */
 
+using PassWraith.Data;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -45,26 +46,10 @@ namespace PassWraith.Utilities
             return passwordMatches;
         }
 
-        /// <summary>
-        /// Derives a cryptographic key from a password and a secret key using the PBKDF2 algorithm.
-        /// </summary>
-        /// <param name="password">The password from which to derive the key.</param>
-        /// <param name="secretKey">The secret key used in the key derivation process.</param>
-        /// <returns>The derived key as a byte array.</returns>
-        public static byte[] DeriveKeyFromPassword(string password, string secretKey)
+        public static byte[] GetKey()
         {
-            const int iterations = 10000;
-            const int keySize = 32;
-
-            byte[] salt = Encoding.UTF8.GetBytes(secretKey);
-
-            using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations))
-            {
-                byte[] keyBytes = pbkdf2.GetBytes(keySize);
-                return keyBytes;
-            }
+            return DeriveKeyFromPassword(Constants.userPassword, ConvertToUnsecureString(Constants.secretKey));
         }
-
 
         /// <summary>
         /// Converts a string value to a secure string.
@@ -171,6 +156,26 @@ namespace PassWraith.Utilities
                         return Encoding.UTF8.GetString(decryptedBytes);
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Derives a cryptographic key from a password and a secret key using the PBKDF2 algorithm.
+        /// </summary>
+        /// <param name="password">The password from which to derive the key.</param>
+        /// <param name="secretKey">The secret key used in the key derivation process.</param>
+        /// <returns>The derived key as a byte array.</returns>
+        private static byte[] DeriveKeyFromPassword(string password, string secretKey)
+        {
+            const int iterations = 10000;
+            const int keySize = 32;
+
+            byte[] salt = Encoding.UTF8.GetBytes(secretKey);
+
+            using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations))
+            {
+                byte[] keyBytes = pbkdf2.GetBytes(keySize);
+                return keyBytes;
             }
         }
     }

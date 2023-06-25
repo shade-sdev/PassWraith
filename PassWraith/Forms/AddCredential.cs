@@ -131,7 +131,7 @@ namespace PassWraith.Forms
             {
                 if (type == actualType)
                 {
-                    return PasswordHelper.EncryptString(password, Constants.key);
+                    return PasswordHelper.EncryptString(password, PasswordHelper.GetKey());
                 }
                 return null;
             }
@@ -139,7 +139,7 @@ namespace PassWraith.Forms
             {
                 if (type == actualType)
                 {
-                    return PasswordHelper.DecryptString(password, Constants.key);
+                    return PasswordHelper.DecryptString(password, PasswordHelper.GetKey());
                 } 
                 return null;
             }

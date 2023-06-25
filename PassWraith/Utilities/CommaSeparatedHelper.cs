@@ -1,15 +1,15 @@
-﻿using CsvHelper.Configuration;
-using CsvHelper;
+﻿using CsvHelper;
 using PassWraith.Data.Entities;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Text;
 using System;
 using PassWraith.Utilities;
+using PassWraith.Data;
 
 public class CommaSeparatedHelper
 {
+
     public static List<PasswordEntity> ToPasswordEntities(string csvFilePath)
     {
         List<PasswordEntity> passwordEntities = new List<PasswordEntity>();
@@ -37,7 +37,7 @@ public class CommaSeparatedHelper
                     WebsiteSiteUrl = urlIndex >= 0 ? record[urlIndex] : null,
                     UserName = usernameIndex >= 0 ? record[usernameIndex] : string.Empty,
                     Password = passwordIndex >= 0 ? PasswordHelper.EncryptString(record[passwordIndex],
-                    Constants.key) : string.Empty,
+                    PasswordHelper.GetKey()) : string.Empty,
                     Notes = noteIndex >= 0 ? record[noteIndex] : string.Empty,
                     CredentialType = PasswordEntity.Type.Login
                 };

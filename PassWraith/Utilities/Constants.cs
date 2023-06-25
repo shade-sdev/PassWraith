@@ -6,6 +6,5 @@ namespace PassWraith.Utilities
     {
         public static SecureString secretKey;
         public static string userPassword;
-        public static byte[] key;
     }
 }
