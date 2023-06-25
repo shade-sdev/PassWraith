@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * File: PasswordHelper.cs
+ * Author: Shade
+ * Date: 06/23
+ * Description: Provides utility methods for password management and encryption operations.
+ */
+
+using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
@@ -7,8 +14,18 @@ using System.Text;
 
 namespace PassWraith.Utilities
 {
+
+    /// <summary>
+    /// Provides utility methods for password management and encryption operations.
+    /// </summary>
     internal class PasswordHelper
     {
+
+        /// <summary>
+        /// Encrypts a password using BCrypt hashing algorithm.
+        /// </summary>
+        /// <param name="password">The password to be encrypted.</param>
+        /// <returns>The hashed password.</returns>
         public static string EncryptPassword(string password)
         {
             string salt = BCrypt.Net.BCrypt.GenerateSalt();
@@ -16,12 +33,24 @@ namespace PassWraith.Utilities
             return hashedPassword;
         }
 
+        /// <summary>
+        /// Verifies whether a password matches a hashed password using BCrypt hashing algorithm.
+        /// </summary>
+        /// <param name="password">The password to be verified.</param>
+        /// <param name="hashedPassword">The hashed password to compare against.</param>
+        /// <returns>True if the password matches the hashed password, otherwise false.</returns>
         public static bool VerifyPassword(string password, string hashedPassword)
         {
             bool passwordMatches = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
             return passwordMatches;
         }
 
+        /// <summary>
+        /// Derives a cryptographic key from a password and a secret key using the PBKDF2 algorithm.
+        /// </summary>
+        /// <param name="password">The password from which to derive the key.</param>
+        /// <param name="secretKey">The secret key used in the key derivation process.</param>
+        /// <returns>The derived key as a byte array.</returns>
         public static byte[] DeriveKeyFromPassword(string password, string secretKey)
         {
             const int iterations = 10000;
@@ -34,6 +63,11 @@ namespace PassWraith.Utilities
             }
         }
 
+        /// <summary>
+        /// Converts a string value to a secure string.
+        /// </summary>
+        /// <param name="value">The string value to convert.</param>
+        /// <returns>A SecureString representation of the value.</returns>
         public static SecureString ConvertToSecureString(string value)
         {
             var secureString = new SecureString();
@@ -45,6 +79,11 @@ namespace PassWraith.Utilities
             return secureString;
         }
 
+        /// <summary>
+        /// Converts a SecureString to its plain text representation.
+        /// </summary>
+        /// <param name="secureString">The SecureString to convert.</param>
+        /// <returns>The plain text string representation of the SecureString.</returns>
         public static string ConvertToUnsecureString(SecureString secureString)
         {
             IntPtr unmanagedString = IntPtr.Zero;
@@ -59,6 +98,12 @@ namespace PassWraith.Utilities
             }
         }
 
+        /// <summary>
+        /// Encrypts a string using AES (Advanced Encryption Standard) algorithm.
+        /// </summary>
+        /// <param name="plainText">The plain text string to encrypt.</param>
+        /// <param name="key">The cryptographic key used for encryption.</param>
+        /// <returns>The encrypted string as a Base64-encoded representation.</returns>
         public static string EncryptString(string plainText, byte[] key)
         {
             byte[] encryptedBytes;
@@ -91,6 +136,12 @@ namespace PassWraith.Utilities
             return Convert.ToBase64String(encryptedBytes);
         }
 
+        /// <summary>
+        /// Decrypts a string that was encrypted using AES (Advanced Encryption Standard) algorithm.
+        /// </summary>
+        /// <param name="encryptedText">The encrypted string as a Base64-encoded representation.</param>
+        /// <param name="key">The cryptographic key used for decryption.</param>
+        /// <returns>The decrypted plain text string.</returns>
         public static string DecryptString(string encryptedText, byte[] key)
         {
             byte[] encryptedBytes = Convert.FromBase64String(encryptedText);
