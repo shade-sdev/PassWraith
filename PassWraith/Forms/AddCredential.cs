@@ -86,10 +86,12 @@ namespace PassWraith.Forms
                 WebSiteName = Sanitize(txtWebsiteName.Text),
                 WebsiteSiteUrl = Sanitize(txtWebsiteUrl.Text),
                 WebSiteIconUrl = BuildFavicon(txtWebsiteUrl.Text, txtWebsiteIconUrl.Text),
-                Password = BuildPassword((PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), cmbPasswordType.Text), txtPassword.Text, true),
+                Password = BuildPassword((PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), cmbPasswordType.Text),
+                PasswordEntity.Type.Login, Sanitize(txtPassword.Text), true),
                 CredentialType = (PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), cmbPasswordType.Text),
                 CardNumber = Sanitize(txtCardNumber.Text),
-                PIN = BuildPassword((PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), cmbPasswordType.Text), txtPin.Text, true),
+                PIN = BuildPassword((PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), cmbPasswordType.Text),
+                PasswordEntity.Type.Card, Sanitize(txtPin.Text), true),
                 CardExpiryDate = DateTime.Parse(txtExpiryDate.Text),
                 Notes = Sanitize(txtNotes.Text)
             };
@@ -102,11 +104,11 @@ namespace PassWraith.Forms
             txtWebsiteName.Text = entity.WebSiteName;
             txtWebsiteUrl.Text = entity.WebsiteSiteUrl;
             txtWebsiteIconUrl.Text = entity.WebSiteIconUrl;
-            txtPassword.Text = BuildPassword(entity.CredentialType, entity.Password, false);
+            txtPassword.Text = BuildPassword(entity.CredentialType, PasswordEntity.Type.Login, entity.Password, false);
             txtConfirmPassword.Text = txtPassword.Text;
-            cmbPasswordType.SelectedIndex = GetEnumOrdinal<PasswordEntity.Type>(entity.CredentialType);
+            cmbPasswordType.SelectedIndex = GetEnumOrdinal(entity.CredentialType);
             txtCardNumber.Text = entity.CardNumber;
-            txtPin.Text = BuildPassword(entity.CredentialType, entity.PIN, false);
+            txtPin.Text = BuildPassword(entity.CredentialType, PasswordEntity.Type.Card, entity.PIN, false);
             txtExpiryDate.Text = entity.CardExpiryDate.ToString();
             txtNotes.Text = entity.Notes;
         }
@@ -123,37 +125,23 @@ namespace PassWraith.Forms
             Close();
         }
 
-        public string BuildPassword(PasswordEntity.Type type, string password, bool isEncrypt)
+        public string BuildPassword(PasswordEntity.Type type, PasswordEntity.Type actualType, string password, bool isEncrypt)
         {
             if (isEncrypt)
             {
-                switch (type)
+                if (type == actualType)
                 {
-                    case PasswordEntity.Type.Login:
-                        return PasswordHelper.EncryptString(password,
-                        PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
-
-                    case PasswordEntity.Type.Card:
-                        return PasswordHelper.EncryptString(password,
-                       PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
-
-                    default: return null;
+                    return PasswordHelper.EncryptString(password, Constants.key);
                 }
+                return null;
             }
             else
             {
-                switch (type)
+                if (type == actualType)
                 {
-                    case PasswordEntity.Type.Login:
-                        return PasswordHelper.DecryptString(password,
-                        PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
-
-                    case PasswordEntity.Type.Card:
-                        return PasswordHelper.DecryptString(password,
-                       PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
-
-                    default: return null;
-                }
+                    return PasswordHelper.DecryptString(password, Constants.key);
+                } 
+                return null;
             }
         }
     }

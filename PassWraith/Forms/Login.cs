@@ -64,6 +64,8 @@ namespace PassWraith.Forms
             if (isValid)
             {
                 Constants.secretKey = PasswordHelper.ConvertToSecureString(txtSecretKey.Text);
+                Constants.userPassword = _context.Get().Password;
+                Constants.key = PasswordHelper.DeriveKeyFromPassword(Constants.userPassword, PasswordHelper.ConvertToUnsecureString(Constants.secretKey));
                 Hide();
                 using (var passWraith = serviceProvider.GetRequiredService<PassWraith>())
                 {

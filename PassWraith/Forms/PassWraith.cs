@@ -27,6 +27,7 @@ namespace PassWraith
             mouseEvents = new PasswraithMouseEvents(passWraithContext, BuildDependencides());
             mouseEvents.InitMouseEvents();
             discord.Init();
+            Console.WriteLine(CommaSeparatedHelper.ToPasswordEntities("C:\\Users\\Shade\\Desktop\\Chrome Passwords.csv"));
         }
 
         private async void PassWraith_Load(object sender, EventArgs e)
@@ -95,9 +96,16 @@ namespace PassWraith
                     {
                         if (imageUrl.Contains(".ico"))
                         {
-                            Icon icon = new Icon(memoryStream);
-                            Image image = icon.ToBitmap();
-                            return image;
+                            try
+                            {
+                                Icon icon = new Icon(memoryStream);
+                                Image image = icon.ToBitmap();
+                                return image;
+                            } catch (Exception ex)
+                            {
+                                return Resources.icons8_Identification_Documents_128px;
+                            }
+
                         }
                         return Image.FromStream(memoryStream);
                     }

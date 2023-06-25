@@ -185,14 +185,14 @@ namespace PassWraith.Controls.MouseEvents
                 dependencies.DispTxtPassword.PasswordChar = '\0';
                 dependencies.DispTxtPassword.UseSystemPasswordChar = false;
                 dependencies.DispTxtPassword.Text = PasswordHelper.DecryptString(dependencies.DispTxtPassword.Text,
-                    PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
+                    Constants.key);
             }
             else
             {
                 dependencies.DispTxtPassword.PasswordChar = '●';
                 dependencies.DispTxtPassword.UseSystemPasswordChar = true;
                 dependencies.DispTxtPassword.Text = PasswordHelper.EncryptString(dependencies.DispTxtPassword.Text,
-                    PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
+                    Constants.key);
             }
         }
 
