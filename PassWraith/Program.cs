@@ -40,7 +40,6 @@ namespace PassWraith
             services.AddScoped<PassWraith>();
             services.AddScoped<Register>();
             services.AddScoped<Login>();
-            services.AddScoped<PasswordHelper>();
             serviceProvider = services.BuildServiceProvider();
         }
     }

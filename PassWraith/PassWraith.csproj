@@ -322,6 +322,7 @@
   <ItemGroup>
     <Content Include="InternalReferences\BCrypt.Net.dll" />
     <Content Include="InternalReferences\BouncyCastle.Crypto.dll" />
+    <Content Include="InternalReferences\CsvHelper.dll" />
     <Content Include="InternalReferences\DiscordRPC.dll" />
     <Content Include="InternalReferences\EntityFramework.dll" />
     <Content Include="InternalReferences\EntityFramework.SqlServer.dll" />
@@ -330,6 +331,9 @@
     <Content Include="InternalReferences\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
     <Content Include="InternalReferences\Microsoft.Extensions.DependencyInjection.dll" />
     <Content Include="InternalReferences\Newtonsoft.Json.dll" />
+    <Content Include="InternalReferences\System.Buffers.dll" />
+    <Content Include="InternalReferences\System.Memory.dll" />
+    <Content Include="InternalReferences\System.Numerics.Vectors.dll" />
     <Content Include="InternalReferences\System.Runtime.CompilerServices.Unsafe.dll" />
     <Content Include="InternalReferences\System.Threading.Tasks.Extensions.dll" />
     <None Include="Resources\Untitled-1.png" />
