@@ -18,6 +18,7 @@ namespace PassWraith.Data
 
 
         public DbSet<PasswordEntity> passwords { get; set; }
+        public DbSet<UserPasswordEntity> UserPasswords { get; set; }
 
         public int Save(PasswordEntity password)
         {
@@ -60,6 +61,27 @@ namespace PassWraith.Data
             var existingEntity = passwords.Find(id);
             existingEntity.IsFavourite = !existingEntity.IsFavourite;
             SaveChanges();
+        }
+
+        public UserPasswordEntity Get()
+        {
+            return UserPasswords?.FirstOrDefault();
+        }
+
+        public bool IsUserRegistered()
+        {
+            return UserPasswords?.ToList().Count() == 1;
+        }
+
+        public int Save(UserPasswordEntity user)
+        {
+            if (UserPasswords.ToList().Count == 0)
+            {
+                UserPasswords?.Add(user);
+                return SaveChanges();
+            }
+
+            return 0;
         }
     }
 }

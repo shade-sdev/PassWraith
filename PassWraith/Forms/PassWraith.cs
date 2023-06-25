@@ -27,13 +27,6 @@ namespace PassWraith
             mouseEvents = new PasswraithMouseEvents(passWraithContext, BuildDependencides());
             mouseEvents.InitMouseEvents();
             discord.Init();
-            string shade = "Shade";
-            string encryptShade = PasswordHelper.EncryptPassword(shade);
-            Constants.secretKey = PasswordHelper.ConvertToSecureString("secret98");
-            var key = PasswordHelper.DeriveKeyFromPassword(encryptShade, PasswordHelper.ConvertToUnsecureString(Constants.secretKey));
-            string encryptPass = PasswordHelper.EncryptString("If you want to use a static value for the salt, you can modify the EncryptString and DecryptString methods to use a fixed salt value. Here's an updated version of the code:", key);
-            string decryp = PasswordHelper.DecryptString(encryptPass, key);
-            Console.WriteLine(decryp);
         }
 
         private async void PassWraith_Load(object sender, EventArgs e)

@@ -73,6 +73,16 @@ namespace PassWraith.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cybersecurity_1024x576_1 {
+            get {
+                object obj = ResourceManager.GetObject("cybersecurity-1024x576-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_adobe_photoshop_96px {
             get {
                 object obj = ResourceManager.GetObject("icons8_adobe_photoshop_96px", resourceCulture);
@@ -153,6 +163,26 @@ namespace PassWraith.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_password_480px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_password_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_password_50px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_password_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_plus_math_30px {
             get {
                 object obj = ResourceManager.GetObject("icons8_plus_math_30px", resourceCulture);
@@ -216,6 +246,16 @@ namespace PassWraith.Properties {
         internal static System.Drawing.Bitmap icons8_star_96px {
             get {
                 object obj = ResourceManager.GetObject("icons8_star_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Untitled_1 {
+            get {
+                object obj = ResourceManager.GetObject("Untitled-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

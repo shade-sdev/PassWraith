@@ -2,6 +2,7 @@
 using PassWraith.Data.Entities;
 using PassWraith.Forms.Validations;
 using PassWraith.Forms.Validations.ValidationModel;
+using PassWraith.Utilities;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -85,10 +86,10 @@ namespace PassWraith.Forms
                 WebSiteName = Sanitize(txtWebsiteName.Text),
                 WebsiteSiteUrl = Sanitize(txtWebsiteUrl.Text),
                 WebSiteIconUrl = BuildFavicon(txtWebsiteUrl.Text, txtWebsiteIconUrl.Text),
-                Password = Sanitize(txtPassword.Text),
+                Password = BuildPassword((PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), cmbPasswordType.Text), txtPassword.Text, true),
                 CredentialType = (PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), cmbPasswordType.Text),
                 CardNumber = Sanitize(txtCardNumber.Text),
-                PIN = Sanitize(txtPin.Text),
+                PIN = BuildPassword((PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), cmbPasswordType.Text), txtPin.Text, true),
                 CardExpiryDate = DateTime.Parse(txtExpiryDate.Text),
                 Notes = Sanitize(txtNotes.Text)
             };
@@ -98,14 +99,14 @@ namespace PassWraith.Forms
         {
             lblId.Text = entity.Id.ToString();
             txtUsername.Text = entity.UserName;
-            txtPassword.Text = entity.Password;
             txtWebsiteName.Text = entity.WebSiteName;
             txtWebsiteUrl.Text = entity.WebsiteSiteUrl;
             txtWebsiteIconUrl.Text = entity.WebSiteIconUrl;
-            txtConfirmPassword.Text = entity.Password;
+            txtPassword.Text = BuildPassword(entity.CredentialType, entity.Password, false);
+            txtConfirmPassword.Text = txtPassword.Text;
             cmbPasswordType.SelectedIndex = GetEnumOrdinal<PasswordEntity.Type>(entity.CredentialType);
             txtCardNumber.Text = entity.CardNumber;
-            txtPin.Text = entity.PIN;
+            txtPin.Text = BuildPassword(entity.CredentialType, entity.PIN, false);
             txtExpiryDate.Text = entity.CardExpiryDate.ToString();
             txtNotes.Text = entity.Notes;
         }
@@ -120,6 +121,40 @@ namespace PassWraith.Forms
             await passWraithForm.LoadPasswordHeadsAsync(_context.GetAll());
             saveProgress.Visible = false;
             Close();
+        }
+
+        public string BuildPassword(PasswordEntity.Type type, string password, bool isEncrypt)
+        {
+            if (isEncrypt)
+            {
+                switch (type)
+                {
+                    case PasswordEntity.Type.Login:
+                        return PasswordHelper.EncryptString(password,
+                        PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
+
+                    case PasswordEntity.Type.Card:
+                        return PasswordHelper.EncryptString(password,
+                       PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
+
+                    default: return null;
+                }
+            }
+            else
+            {
+                switch (type)
+                {
+                    case PasswordEntity.Type.Login:
+                        return PasswordHelper.DecryptString(password,
+                        PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
+
+                    case PasswordEntity.Type.Card:
+                        return PasswordHelper.DecryptString(password,
+                       PasswordHelper.DeriveKeyFromPassword(_context.Get().Password, PasswordHelper.ConvertToUnsecureString(Constants.secretKey)));
+
+                    default: return null;
+                }
+            }
         }
     }
 }

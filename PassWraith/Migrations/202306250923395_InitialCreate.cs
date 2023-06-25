@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class PasswraithEntity : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -29,10 +29,20 @@
                     })
                 .PrimaryKey(t => t.id);
             
+            CreateTable(
+                "dbo.user_password",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        encrypted_password = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.id);
+            
         }
         
         public override void Down()
         {
+            DropTable("dbo.user_password");
             DropTable("dbo.credential");
         }
     }

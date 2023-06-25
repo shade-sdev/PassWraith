@@ -15,5 +15,11 @@ namespace PassWraith.Data
         void SetFavourite(int id);
 
         List<PasswordEntity> GetAll();
+
+        int Save(UserPasswordEntity user);
+
+        bool IsUserRegistered();
+
+        UserPasswordEntity Get();
     }
 }

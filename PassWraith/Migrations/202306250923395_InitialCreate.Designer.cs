@@ -7,13 +7,13 @@ namespace PassWraith.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class PasswraithEntity : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PasswraithEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202306240508077_Passwraith-Entity"; }
+            get { return "202306250923395_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

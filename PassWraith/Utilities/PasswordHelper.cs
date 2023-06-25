@@ -56,12 +56,15 @@ namespace PassWraith.Utilities
             const int iterations = 10000;
             const int keySize = 32;
 
-            using (var pbkdf2 = new Rfc2898DeriveBytes(password, Encoding.UTF8.GetBytes(secretKey), iterations))
+            byte[] salt = Encoding.UTF8.GetBytes(secretKey);
+
+            using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations))
             {
                 byte[] keyBytes = pbkdf2.GetBytes(keySize);
                 return keyBytes;
             }
         }
+
 
         /// <summary>
         /// Converts a string value to a secure string.
