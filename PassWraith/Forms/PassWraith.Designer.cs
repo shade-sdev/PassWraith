@@ -49,6 +49,7 @@ namespace PassWraith
             this.midDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.rightDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.rightPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnImport = new Guna.UI2.WinForms.Guna2Button();
             this.editBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
@@ -75,6 +76,7 @@ namespace PassWraith
             this.displayPicBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.flpMainDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.gunaToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.leftPanel.SuspendLayout();
             this.midPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -117,6 +119,7 @@ namespace PassWraith
             this.btnTrash.Name = "btnTrash";
             this.btnTrash.Size = new System.Drawing.Size(225, 35);
             this.btnTrash.TabIndex = 2;
+            this.btnTrash.Tag = "DEL";
             this.btnTrash.Text = "Trash";
             this.btnTrash.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -139,6 +142,7 @@ namespace PassWraith
             this.btnFavourites.Name = "btnFavourites";
             this.btnFavourites.Size = new System.Drawing.Size(225, 35);
             this.btnFavourites.TabIndex = 1;
+            this.btnFavourites.Tag = "FAV";
             this.btnFavourites.Text = "Favourites";
             this.btnFavourites.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -160,6 +164,7 @@ namespace PassWraith
             this.allItemsBtn.Name = "allItemsBtn";
             this.allItemsBtn.Size = new System.Drawing.Size(225, 35);
             this.allItemsBtn.TabIndex = 0;
+            this.allItemsBtn.Tag = "ALL";
             this.allItemsBtn.Text = "All Items";
             this.allItemsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -257,6 +262,7 @@ namespace PassWraith
             // rightPanel
             // 
             this.rightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rightPanel.Controls.Add(this.btnImport);
             this.rightPanel.Controls.Add(this.editBtn);
             this.rightPanel.Controls.Add(this.guna2Panel1);
             this.rightPanel.Controls.Add(this.Separator2);
@@ -268,6 +274,25 @@ namespace PassWraith
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.Size = new System.Drawing.Size(512, 625);
             this.rightPanel.TabIndex = 2;
+            // 
+            // btnImport
+            // 
+            this.btnImport.BorderRadius = 2;
+            this.btnImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnImport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnImport.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.ForeColor = System.Drawing.Color.White;
+            this.btnImport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnImport.Image = global::PassWraith.Properties.Resources.icons8_import_30px;
+            this.btnImport.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnImport.Location = new System.Drawing.Point(128, 30);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(68, 24);
+            this.btnImport.TabIndex = 8;
+            this.btnImport.Text = "Import";
             // 
             // editBtn
             // 
@@ -707,6 +732,7 @@ namespace PassWraith
         {
             return new PasswraithDependencies
             {
+                MainTimer = this.mainTimer,
                 DispUsernamePanel = this.dispUsernamePanel,
                 DispPasswordPanel = this.dispPasswordPanel,
                 DispWebsitePanel = this.dispWebsitePanel,
@@ -742,9 +768,18 @@ namespace PassWraith
                 Separator1 = this.Seperator1,
                 Guna2Panel1 = this.guna2Panel1,
                 LblNotes = this.lblNotes,
-                Separator2 = this.Separator2
+                Separator2 = this.Separator2,
+                BtnImport = this.btnImport,
+                AllItemsBtn = this.allItemsBtn,
+                BtnFavourites = this.btnFavourites,
+                BtnTrash = this.btnTrash,
+               
+               
             };
         }
+
+        public Guna2Button btnImport;
+        private System.Windows.Forms.Timer mainTimer;
     }
 }
 

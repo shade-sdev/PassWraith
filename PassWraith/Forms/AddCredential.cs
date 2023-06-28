@@ -119,8 +119,8 @@ namespace PassWraith.Forms
             saveProgress.AutoStart = true;
             _ = BuildEntity().Id == 0 ? _context.Save(BuildEntity()) : _context.Update(BuildEntity().Id, BuildEntity());
             var passWraithForm = Application.OpenForms.OfType<PassWraith>().FirstOrDefault();
-            await passWraithForm.ClearFlpMain();
-            await passWraithForm.LoadPasswordHeadsAsync(_context.GetAll());
+            await passWraithForm.mouseEvents.ClearFlpMain();
+            await passWraithForm.mouseEvents.LoadPasswordHeadsAsync(_context.GetAll());
             saveProgress.Visible = false;
             Close();
         }

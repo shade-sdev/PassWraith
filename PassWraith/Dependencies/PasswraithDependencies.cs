@@ -11,6 +11,7 @@ namespace PassWraith.Dependencies
 {
     public class PasswraithDependencies
     {
+        public Timer MainTimer { get; set; }
         public Guna2Panel DispUsernamePanel { get; set; }
         public Guna2Panel DispPasswordPanel { get; set; }
         public Guna2Panel DispWebsitePanel { get; set; }
@@ -27,6 +28,9 @@ namespace PassWraith.Dependencies
         public Guna2PictureBox DisplayPicBox { get; set; }
         public Guna2Button AddBtn { get; set; }
         public Guna2Button EditBtn { get; set; }
+        public Guna2Button AllItemsBtn { get; set; }
+        public Guna2Button BtnFavourites { get; set; }
+        public Guna2Button BtnTrash { get; set; }
         public Guna2HtmlLabel DispLblUsernameTitle { get; set; }
         public Guna2HtmlLabel DispLblPasswordTitle { get; set; }
         public Guna2HtmlLabel DispLblWebsiteTitle { get; set; }
@@ -47,6 +51,6 @@ namespace PassWraith.Dependencies
         public Guna2Panel Guna2Panel1 { get; set; }
         public Guna2HtmlLabel LblNotes { get; set; }
         public Guna2Separator Separator2 { get; set; }
-
+        public Guna2Button BtnImport { get; set; }
     }
 }

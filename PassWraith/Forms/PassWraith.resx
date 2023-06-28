@@ -1015,12 +1015,15 @@
     <value>269, 21</value>
   </metadata>
   <metadata name="rightDrag.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>532, 21</value>
+    <value>455, 21</value>
   </metadata>
   <metadata name="flpMainDrag.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>636, 21</value>
+    <value>559, 21</value>
   </metadata>
   <metadata name="gunaToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>756, 21</value>
+    <value>679, 21</value>
+  </metadata>
+  <metadata name="mainTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>357, 15</value>
   </metadata>
 </root>

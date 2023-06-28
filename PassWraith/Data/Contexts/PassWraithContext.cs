@@ -3,19 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PassWraith.Data
 {
     public class PassWraithContext : DbContext, IPassWraithContext
     {
-
         public PassWraithContext() : base(
             "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" +
               Environment.CurrentDirectory +
               @"\Passwraith.mdf;Integrated Security=False;MultipleActiveResultSets=True")
         {
         }
-
 
         public DbSet<PasswordEntity> passwords { get; set; }
         public DbSet<UserPasswordEntity> UserPasswords { get; set; }
@@ -26,7 +25,7 @@ namespace PassWraith.Data
             return SaveChanges();
         }
 
-        public int Update(int id,PasswordEntity password)
+        public int Update(int id, PasswordEntity password)
         {
             var existingEntity = passwords.Find(id);
             if (existingEntity != null)
@@ -49,6 +48,48 @@ namespace PassWraith.Data
         public List<PasswordEntity> GetAll()
         {
             return passwords.OrderBy(pass => pass.WebSiteName).ToList();
+        }
+
+        public List<PasswordEntity> Filter(FilterType filterType, string search, int pageNumber, int pageSize)
+        {
+            IQueryable<PasswordEntity> query = passwords.AsQueryable();
+
+            switch (filterType)
+            {
+                case FilterType.FAV:
+                    query = query.Where(password =>
+                        (string.IsNullOrEmpty(search) || password.WebSiteName.ToLower().Contains(search) || password.UserName.ToLower().Contains(search))
+                        && password.IsFavourite);
+                    break;
+
+                case FilterType.DEL:
+                    query = query.Where(password =>
+                        (string.IsNullOrEmpty(search) || password.WebSiteName.ToLower().Contains(search) || password.UserName.ToLower().Contains(search))
+                        && password.IsDeleted);
+                    break;
+
+                case FilterType.ALL:
+                default:
+                    query = query.Where(password =>
+                        string.IsNullOrEmpty(search) || password.WebSiteName.ToLower().Contains(search) || password.UserName.ToLower().Contains(search));
+                    break;
+            }
+
+            return query
+                .OrderBy(p => p.WebSiteName)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+
+        public List<PasswordEntity> GetPasswordEntities(int pageNumber, int pageSize)
+        {
+            var passwordEntities = passwords.OrderBy(p => p.WebSiteName)
+                                            .Skip((pageNumber - 1) * pageSize)
+                                            .Take(pageSize)
+                                            .ToList();
+
+            return passwordEntities;
         }
 
         public PasswordEntity Get(int id)
@@ -82,6 +123,12 @@ namespace PassWraith.Data
             }
 
             return 0;
+        }
+
+        public async Task SaveAsync(PasswordEntity password)
+        {
+            passwords.Add(password);
+            await SaveChangesAsync();
         }
     }
 }

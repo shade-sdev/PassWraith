@@ -106,8 +106,8 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel mainPanel;
-        private Guna.UI2.WinForms.Guna2PictureBox passIconPic;
-        private Guna.UI2.WinForms.Guna2HtmlLabel usernameLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel titleLbl;
+        public Guna.UI2.WinForms.Guna2PictureBox passIconPic;
+        public Guna.UI2.WinForms.Guna2HtmlLabel usernameLbl;
+        public Guna.UI2.WinForms.Guna2HtmlLabel titleLbl;
     }
 }

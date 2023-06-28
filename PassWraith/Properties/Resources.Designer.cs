@@ -163,6 +163,16 @@ namespace PassWraith.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_import_30px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_import_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_password_480px {
             get {
                 object obj = ResourceManager.GetObject("icons8_password_480px", resourceCulture);

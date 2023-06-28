@@ -336,6 +336,7 @@
     <Content Include="InternalReferences\System.Numerics.Vectors.dll" />
     <Content Include="InternalReferences\System.Runtime.CompilerServices.Unsafe.dll" />
     <Content Include="InternalReferences\System.Threading.Tasks.Extensions.dll" />
+    <None Include="Resources\icons8_import_30px.png" />
     <None Include="Resources\Untitled-1.png" />
     <None Include="Resources\icons8_password_480px.png" />
     <None Include="Resources\icons8_password_50px.png" />
