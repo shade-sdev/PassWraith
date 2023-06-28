@@ -11,9 +11,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheArtOfDevHtmlRenderer.Adapters.Entities;
 
 namespace PassWraith.Controls.MouseEvents
 {
@@ -27,7 +28,7 @@ namespace PassWraith.Controls.MouseEvents
         public int PAGE_SIZE = 8;
         public int CURRENT_PAGE = 1;
         private bool IS_DATA_LOADING = false;
-        private FilterType filterType = FilterType.ALL;
+        public FilterType filterType = FilterType.ALL;
 
         public PasswraithMouseEvents(IPassWraithContext _context, PasswraithDependencies dependencies)
         {
@@ -117,11 +118,13 @@ namespace PassWraith.Controls.MouseEvents
             dependencies.MainTimer.Start();
         }
 
-        public void Filter_Click(object sender, EventArgs e)
+        public async void Filter_Click(object sender, EventArgs e)
         {
-            var btn = (Guna2Button)sender;
 
-            Task.Run(() =>
+            var btn = (Guna2Button)sender;
+            await ResetFilterButtons();
+            btn.FillColor = Color.FromArgb(23, 93, 220);
+            await Task.Run(() =>
             {
                 btn.BeginInvoke((MethodInvoker)async delegate
                 {
@@ -145,7 +148,20 @@ namespace PassWraith.Controls.MouseEvents
                     await ClearFlpMain();
                     await Load(filterType);
                 });
-                
+
+            });
+        }
+
+        public async Task ResetFilterButtons()
+        {
+           await Task.Run(() =>
+            {
+                List<Guna2Button> filterButtons = new List<Guna2Button> { dependencies.AllItemsBtn, dependencies.BtnFavourites, dependencies.BtnTrash, };
+
+                foreach (var button in filterButtons)
+                {
+                    button.FillColor = Color.Transparent;
+                }
             });
         }
 
@@ -169,31 +185,12 @@ namespace PassWraith.Controls.MouseEvents
 
         public async Task Load(FilterType filter)
         {
+            await Task.Delay(500);
             var passwords = _context.Filter(filter, dependencies.SearchBox.Text, CURRENT_PAGE, PAGE_SIZE);
             dependencies.SearchBox.AutoCompleteCustomSource.Clear();
             passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
             await LoadPasswordHeadsAsync(passwords);
-        }
-
-        private async void FlpMain_MouseWheel(object sender, MouseEventArgs e)
-        {
-            if (e.Delta < 0)
-            {
-                int visibleHeight = dependencies.FlpMain.ClientSize.Height;
-                int totalHeight = dependencies.FlpMain.DisplayRectangle.Height;
-                int scrollPosition = dependencies.FlpMain.VerticalScroll.Value;
-
-                if (scrollPosition + visibleHeight >= totalHeight && !IS_DATA_LOADING)
-                {
-                    IS_DATA_LOADING = true;
-
-                    CURRENT_PAGE = CURRENT_PAGE + 1;
-                    var passwords = _context.GetPasswordEntities(CURRENT_PAGE, PAGE_SIZE);
-                    passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
-                    await LoadPasswordHeadsAsync(passwords);
-                    IS_DATA_LOADING = false;
-                }
-            }
+            await ClickFirstControl();
         }
 
         // PANEL BUTTON
@@ -418,9 +415,53 @@ namespace PassWraith.Controls.MouseEvents
             });
         }
 
+        // SCROLL
+
+        private async void FlpMain_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta < 0)
+            {
+                int visibleHeight = dependencies.FlpMain.ClientSize.Height;
+                int totalHeight = dependencies.FlpMain.DisplayRectangle.Height;
+                int scrollPosition = dependencies.FlpMain.VerticalScroll.Value;
+
+                if (scrollPosition + visibleHeight >= totalHeight && !IS_DATA_LOADING)
+                {
+                    IS_DATA_LOADING = true;
+
+                    CURRENT_PAGE = CURRENT_PAGE + 1;
+                    var passwords = _context.GetPasswordEntities(CURRENT_PAGE, PAGE_SIZE);
+                    passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
+                    await LoadPasswordHeadsAsync(passwords);
+                    IS_DATA_LOADING = false;
+                }
+            }
+        }
+
         // PasswordHead
 
-        public async Task LoadPasswordHeadsAsync(List<PasswordEntity> passwords)
+        private async Task ClickFirstControl()
+        {
+            await Task.Run(() =>
+            {
+                PasswordHead control = dependencies.FlpMain.Controls.OfType<PasswordHead>().FirstOrDefault();
+                dependencies.FlpMain.BeginInvoke((MethodInvoker)delegate
+                {
+                    if (control != null && !control.IsDisposed)
+                    {
+                        Type controlType = this.GetType();
+                        MethodInfo buttonClickMethod = controlType.GetMethod("User_click", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+
+                        if (buttonClickMethod != null)
+                        {
+                            buttonClickMethod.Invoke(this, new object[] { control, EventArgs.Empty });
+                        }
+                    }
+                });
+            });
+        }
+
+        private async Task LoadPasswordHeadsAsync(List<PasswordEntity> passwords)
         {
 
             var downloadTasks = passwords.Select(async item =>

@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheArtOfDevHtmlRenderer.Adapters.Entities;
 
 namespace PassWraith.Forms
 {
@@ -120,7 +121,7 @@ namespace PassWraith.Forms
             _ = BuildEntity().Id == 0 ? _context.Save(BuildEntity()) : _context.Update(BuildEntity().Id, BuildEntity());
             var passWraithForm = Application.OpenForms.OfType<PassWraith>().FirstOrDefault();
             await passWraithForm.mouseEvents.ClearFlpMain();
-            await passWraithForm.mouseEvents.LoadPasswordHeadsAsync(_context.GetAll());
+            await passWraithForm.mouseEvents.Load(passWraithForm.mouseEvents.filterType);
             saveProgress.Visible = false;
             Close();
         }

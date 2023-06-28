@@ -2,6 +2,7 @@
 using PassWraith.Data;
 using PassWraith.Utilities;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PassWraith
@@ -23,6 +24,7 @@ namespace PassWraith
 
         private async void PassWraith_Load(object sender, EventArgs e)
         {
+            await Task.Delay(1000);
             await mouseEvents.Load(FilterType.ALL);
         }
 
