@@ -77,6 +77,8 @@ namespace PassWraith
             this.flpMainDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.gunaToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.leftPanel.SuspendLayout();
             this.midPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -92,6 +94,8 @@ namespace PassWraith
             // leftPanel
             // 
             this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.leftPanel.Controls.Add(this.guna2ControlBox2);
+            this.leftPanel.Controls.Add(this.guna2ControlBox1);
             this.leftPanel.Controls.Add(this.btnTrash);
             this.leftPanel.Controls.Add(this.btnFavourites);
             this.leftPanel.Controls.Add(this.allItemsBtn);
@@ -181,7 +185,7 @@ namespace PassWraith
             // 
             // addBtn
             // 
-            this.addBtn.BorderRadius = 2;
+            this.addBtn.BorderRadius = 4;
             this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -656,6 +660,31 @@ namespace PassWraith
             this.gunaToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.gunaToolTip.ToolTipTitle = "Expiry Date";
             // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.BorderRadius = 6;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(96)))), ((int)(((byte)(92)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(14, 13);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.ShowIcon = false;
+            this.guna2ControlBox1.Size = new System.Drawing.Size(13, 13);
+            this.guna2ControlBox1.TabIndex = 3;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.BorderRadius = 6;
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(202)))), ((int)(((byte)(78)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(33, 13);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.ShowIcon = false;
+            this.guna2ControlBox2.Size = new System.Drawing.Size(13, 13);
+            this.guna2ControlBox2.TabIndex = 4;
+            // 
             // PassWraith
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -780,6 +809,8 @@ namespace PassWraith
 
         public Guna2Button btnImport;
         private System.Windows.Forms.Timer mainTimer;
+        private Guna2ControlBox guna2ControlBox1;
+        private Guna2ControlBox guna2ControlBox2;
     }
 }
 

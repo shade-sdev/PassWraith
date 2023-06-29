@@ -2,18 +2,26 @@ using PassWraith.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace PassWraith.Data
 {
     public class PassWraithContext : DbContext, IPassWraithContext
     {
-        public PassWraithContext() : base(
-            "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" +
-              Environment.CurrentDirectory +
-              @"\Passwraith.mdf;Integrated Security=False;MultipleActiveResultSets=True")
+        public PassWraithContext() : base(GetConnectionString())
         {
+        }
+
+        private static string GetConnectionString()
+        {
+            var appDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var mdfFilePath = Path.Combine(appDirectory, "Passwraith.mdf");
+
+            var connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={mdfFilePath};Integrated Security=False;MultipleActiveResultSets=True";
+            return connectionString;
         }
 
         public DbSet<PasswordEntity> passwords { get; set; }

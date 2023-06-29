@@ -17,7 +17,7 @@ namespace PassWraith
         {
             InitializeComponent();
             this.passWraithContext = passWraithContext;
-            mouseEvents = new PasswraithMouseEvents(passWraithContext, BuildDependencides());
+            mouseEvents = new PasswraithMouseEvents(this.passWraithContext, BuildDependencides());
             mouseEvents.InitMouseEvents();
             discord.Init();
         }

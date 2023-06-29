@@ -185,7 +185,7 @@ namespace PassWraith.Controls.MouseEvents
 
         public async Task Load(FilterType filter)
         {
-            await Task.Delay(500);
+            await Task.Delay(100);
             var passwords = _context.Filter(filter, dependencies.SearchBox.Text, CURRENT_PAGE, PAGE_SIZE);
             dependencies.SearchBox.AutoCompleteCustomSource.Clear();
             passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
@@ -206,7 +206,8 @@ namespace PassWraith.Controls.MouseEvents
             }
             else if (button.Name == "dispBtnPasswordCopy")
             {
-                Clipboard.SetText(dependencies.DispTxtPassword.Text);
+                Clipboard.SetText(PasswordHelper.DecryptString(dependencies.DispTxtPassword.Text,
+                    PasswordHelper.GetKey()));
             }
             else
             {
