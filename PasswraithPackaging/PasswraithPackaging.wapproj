@@ -79,8 +79,4 @@
   <ItemGroup>
     <ProjectReference Include="..\PassWraith\PassWraith.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="key.pfx.snk" />
-    <None Include="PassWraith_TemporaryKey.pfx" />
-  </ItemGroup>
 </Project>

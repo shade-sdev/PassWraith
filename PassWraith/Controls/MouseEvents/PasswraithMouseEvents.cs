@@ -94,7 +94,7 @@ namespace PassWraith.Controls.MouseEvents
                             control.Click += Filter_Click;
                             break;
                         case "SearchButton":
-                            control.TextChanged += SearchBox_TextChange;
+                            control.KeyDown += SearchBox_KeyDownAsync;
                             break;
                         default:
                             throw new Exception("What the fck?");
@@ -103,20 +103,29 @@ namespace PassWraith.Controls.MouseEvents
             }
         }
 
-        public void SearchBox_TextChange(object sender, EventArgs e)
+        public async void SearchBox_KeyDownAsync(object sender, KeyEventArgs e)
         {
-            dependencies.MainTimer?.Stop();
-            dependencies.MainTimer = new Timer();
-            dependencies.MainTimer.Interval = 500;
-            dependencies.MainTimer.Tick += async (s, _) =>
+            if (e.KeyCode == Keys.Enter)
             {
                 await ClearFlpMain();
                 await Load(filterType);
-                dependencies.MainTimer.Stop();
-            };
-
-            dependencies.MainTimer.Start();
+            }
         }
+
+        //public void SearchBox_TextChange(object sender, EventArgs e)
+        //{
+        //    dependencies.MainTimer?.Stop();
+        //    dependencies.MainTimer = new Timer();
+        //    dependencies.MainTimer.Interval = 500;
+        //    dependencies.MainTimer.Tick += async (s, _) =>
+        //    {
+        //        await ClearFlpMain();
+        //        await Load(filterType);
+        //        dependencies.MainTimer.Stop();
+        //    };
+
+        //    dependencies.MainTimer.Start();
+        //}
 
         public async void Filter_Click(object sender, EventArgs e)
         {
@@ -186,7 +195,7 @@ namespace PassWraith.Controls.MouseEvents
         public async Task Load(FilterType filter)
         {
             await Task.Delay(100);
-            var passwords = _context.Filter(filter, dependencies.SearchBox.Text, CURRENT_PAGE, PAGE_SIZE);
+            var passwords = _context.Filter(filter, dependencies.SearchBox.Text.Trim(), CURRENT_PAGE, PAGE_SIZE);
             dependencies.SearchBox.AutoCompleteCustomSource.Clear();
             passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
             await LoadPasswordHeadsAsync(passwords);

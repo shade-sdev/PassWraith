@@ -1,4 +1,5 @@
 using PassWraith.Data.Entities;
+using PassWraith.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,6 +14,7 @@ namespace PassWraith.Data
     {
         public PassWraithContext() : base(GetConnectionString())
         {
+            
         }
 
         private static string GetConnectionString()
