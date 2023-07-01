@@ -12,8 +12,6 @@ using PassWraith.Utilities;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System;
-using System.Runtime.InteropServices.ComTypes;
-using System.Data.Entity.Core.Metadata.Edm;
 
 public class CommaSeparatedHelper
 {
@@ -47,7 +45,7 @@ public class CommaSeparatedHelper
             csv.NextRecord();
             csv.WriteRecords(passwordEntities);
         }
-        MessageBox.Show("Exported to your Desktop!");
+        Notification.ShowNotification(ToolTipIcon.Info, 3000, "Export CSV", "Exported to your desktop");
     }
 
     public static async Task<List<PasswordEntity>> ToPasswordEntitiesAsync(string filePath, bool isForChrome)

@@ -12,7 +12,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -165,7 +164,7 @@ namespace PassWraith.Controls.MouseEvents
         {
             await Task.Run(() =>
              {
-                 List<Guna2Button> filterButtons = new List<Guna2Button> { dependencies.AllItemsBtn, dependencies.BtnFavourites, dependencies.BtnTrash, dependencies.BtnCards};
+                 List<Guna2Button> filterButtons = new List<Guna2Button> { dependencies.AllItemsBtn, dependencies.BtnFavourites, dependencies.BtnTrash, dependencies.BtnCards };
 
                  foreach (var button in filterButtons)
                  {
@@ -203,8 +202,12 @@ namespace PassWraith.Controls.MouseEvents
             }));
 
 
-            await LoadPasswordHeadsAsync(passwords);
-            await ClickFirstControl();
+            await LoadPasswordHeadsAsync(passwords)
+                .ContinueWith(async task =>
+                {
+                    await ClickFirstControl();
+                });
+
         }
 
         // PANEL BUTTON
@@ -470,9 +473,7 @@ namespace PassWraith.Controls.MouseEvents
                     IS_DATA_LOADING = true;
 
                     CURRENT_PAGE = CURRENT_PAGE + 1;
-                    var passwords = _context.GetPasswordEntities(CURRENT_PAGE, PAGE_SIZE);
-                    passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
-                    await LoadPasswordHeadsAsync(passwords);
+                    await Load(this.filterType);
                     IS_DATA_LOADING = false;
                 }
             }
@@ -487,23 +488,24 @@ namespace PassWraith.Controls.MouseEvents
                 PasswordHead control = dependencies.FlpMain.Controls.OfType<PasswordHead>().FirstOrDefault();
                 dependencies.FlpMain.BeginInvoke((MethodInvoker)delegate
                 {
-                    if (control != null && !control.IsDisposed)
+                    while (control == null || control.IsDisposed)
                     {
-                        Type controlType = this.GetType();
-                        MethodInfo buttonClickMethod = controlType.GetMethod("User_click", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+                        control = dependencies.FlpMain.Controls.OfType<PasswordHead>().FirstOrDefault();
 
-                        if (buttonClickMethod != null)
-                        {
-                            buttonClickMethod.Invoke(this, new object[] { control, EventArgs.Empty });
-                        }
+                    }
+                    Type controlType = this.GetType();
+                    MethodInfo buttonClickMethod = controlType.GetMethod("User_click", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+
+                    if (buttonClickMethod != null)
+                    {
+                        buttonClickMethod.Invoke(this, new object[] { control, EventArgs.Empty });
                     }
                 });
             });
         }
 
-        private async Task LoadPasswordHeadsAsync(List<PasswordEntity> passwords)
+        private Task LoadPasswordHeadsAsync(List<PasswordEntity> passwords)
         {
-
             var downloadTasks = passwords.Select(async item =>
             {
                 PasswordHead passwordHead = new PasswordHead
@@ -517,13 +519,14 @@ namespace PassWraith.Controls.MouseEvents
 
                 await AddPasswordHeadAsync(passwordHead);
 
-                await Task.Run(async () =>
+                _ = Task.Run(async () =>
                 {
-                    passwordHead.passBoxImage = await DownloadImageAsync(item.WebSiteIconUrl);
+                    passwordHead.passBoxImage = await DownloadImageAsync(FormHelper.BuildFavicon(item.WebsiteSiteUrl, item.WebSiteIconUrl));
                 });
             });
 
-            await Task.WhenAll(downloadTasks);
+            _ = Task.WhenAll(downloadTasks);
+            return Task.CompletedTask;
         }
 
         private async Task<Image> DownloadImageAsync(string imageUrl)

@@ -60,7 +60,7 @@ namespace PassWraith.Utilities
             return imageExtensions.Contains(lowercaseExtension);
         }
 
-        public string BuildFavicon(string websiteUrl, string iconUrl)
+        public static string BuildFavicon(string websiteUrl, string iconUrl)
         {
             if (string.IsNullOrEmpty(websiteUrl) && string.IsNullOrEmpty(iconUrl))
             {
