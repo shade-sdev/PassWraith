@@ -133,9 +133,29 @@ namespace PassWraith.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete_24px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_delete_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_edit_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_edit_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_export_30px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_export_30px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +186,16 @@ namespace PassWraith.Properties {
         internal static System.Drawing.Bitmap icons8_import_30px {
             get {
                 object obj = ResourceManager.GetObject("icons8_import_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_Magnetic_Card_40px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Magnetic_Card_40px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +236,16 @@ namespace PassWraith.Properties {
         internal static System.Drawing.Bitmap icons8_plus_math_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_plus_math_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_page_50px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_restore_page_50px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +296,26 @@ namespace PassWraith.Properties {
         internal static System.Drawing.Bitmap icons8_star_96px {
             get {
                 object obj = ResourceManager.GetObject("icons8_star_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_upload_500px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_upload_500px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_upload_60px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_upload_60px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

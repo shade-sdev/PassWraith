@@ -45,10 +45,13 @@ namespace PassWraith.Controls.MouseEvents
                        { "Website", new List<Control> { dependencies.DispWebsitePanel, dependencies.DispBtnWebsiteCopy, dependencies.DispLblWebsiteTitle, dependencies.DispLblWebsiteName } },
                 {"AddButton", new List<Control> { dependencies.AddBtn,} },
                      {"EditButton", new List<Control> { dependencies.EditBtn,} },
+                 {"DeleteButton", new List<Control> { dependencies.DeleteBtn,} },
+                  {"RestoreButton", new List<Control> { dependencies.RestoreBtn,} },
                   {"StarButton", new List<Control> { dependencies.StarPicBox,} },
                    {"ImportButton", new List<Control> { dependencies.BtnImport,} },
+                   {"ExportButton", new List<Control> { dependencies.BtnExport,} },
                    {"FlowLayoutPanel", new List<Control> { dependencies.FlpMain,} },
-                   {"FilterButton", new List<Control> { dependencies.AllItemsBtn, dependencies.BtnFavourites, dependencies.BtnTrash,} },
+                   {"FilterButton", new List<Control> { dependencies.AllItemsBtn, dependencies.BtnFavourites, dependencies.BtnTrash, dependencies.BtnCards} },
                    {"SearchButton", new List<Control> { dependencies.SearchBox} },
             };
 
@@ -81,11 +84,20 @@ namespace PassWraith.Controls.MouseEvents
                         case "EditButton":
                             control.Click += EditBtn_Click;
                             break;
+                        case "DeleteButton":
+                            control.Click += DeleteBtn_Click;
+                            break;
+                        case "RestoreButton":
+                            control.Click += RestoreBtn_Click;
+                            break;
                         case "StarButton":
                             control.Click += Favourite_Click;
                             break;
                         case "ImportButton":
                             control.Click += ImportBtn_Click;
+                            break;
+                        case "ExportButton":
+                            control.Click += ExportBtn_Click;
                             break;
                         case "FlowLayoutPanel":
                             control.MouseWheel += FlpMain_MouseWheel;
@@ -139,19 +151,7 @@ namespace PassWraith.Controls.MouseEvents
                 {
                     if (Enum.TryParse(btn.Tag.ToString(), true, out FilterType filter))
                     {
-                        switch (filter)
-                        {
-                            case FilterType.FAV:
-                                filterType = FilterType.FAV;
-                                break;
-                            case FilterType.DEL:
-                                filterType = FilterType.DEL;
-                                break;
-                            case FilterType.ALL:
-                            default:
-                                filterType = FilterType.ALL;
-                                break;
-                        }
+                        filterType = filter;
                     }
                     CURRENT_PAGE = 1;
                     await ClearFlpMain();
@@ -163,15 +163,15 @@ namespace PassWraith.Controls.MouseEvents
 
         public async Task ResetFilterButtons()
         {
-           await Task.Run(() =>
-            {
-                List<Guna2Button> filterButtons = new List<Guna2Button> { dependencies.AllItemsBtn, dependencies.BtnFavourites, dependencies.BtnTrash, };
+            await Task.Run(() =>
+             {
+                 List<Guna2Button> filterButtons = new List<Guna2Button> { dependencies.AllItemsBtn, dependencies.BtnFavourites, dependencies.BtnTrash, dependencies.BtnCards};
 
-                foreach (var button in filterButtons)
-                {
-                    button.FillColor = Color.Transparent;
-                }
-            });
+                 foreach (var button in filterButtons)
+                 {
+                     button.FillColor = Color.Transparent;
+                 }
+             });
         }
 
         public async Task ClearFlpMain()
@@ -196,8 +196,13 @@ namespace PassWraith.Controls.MouseEvents
         {
             await Task.Delay(100);
             var passwords = _context.Filter(filter, dependencies.SearchBox.Text.Trim(), CURRENT_PAGE, PAGE_SIZE);
-            dependencies.SearchBox.AutoCompleteCustomSource.Clear();
-            passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
+            dependencies.SearchBox.BeginInvoke(new MethodInvoker(() =>
+            {
+                dependencies.SearchBox.AutoCompleteCustomSource.Clear();
+                passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
+            }));
+
+
             await LoadPasswordHeadsAsync(passwords);
             await ClickFirstControl();
         }
@@ -295,14 +300,39 @@ namespace PassWraith.Controls.MouseEvents
             addCredential.ShowDialog();
         }
 
+        public async void DeleteBtn_Click(Object sender, EventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                if (selectedPasswordEntity == null) return;
+                _context.Delete(selectedPasswordEntity.Id);
+
+            });
+            await ClearFlpMain();
+            await Load(filterType);
+        }
+
+        public async void RestoreBtn_Click(Object sender, EventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                if (selectedPasswordEntity == null) return;
+                _context.Restore(selectedPasswordEntity.Id);
+
+            });
+            await ClearFlpMain();
+            await Load(filterType);
+        }
+
         public void ImportBtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.DefaultExt = ".csv";
-            ofd.Filter = "Comma Separated (*.csv)|*.csv";
-            ofd.ShowDialog();
-            string path = ofd.FileName;
-            CommaSeparatedHelper.ImportExcel(path, _context);
+            Import import = new Import(_context);
+            import.ShowDialog();
+        }
+
+        public void ExportBtn_Click(object sender, EventArgs e)
+        {
+            CommaSeparatedHelper.ExportExcel(_context);
         }
 
         public async void Favourite_Click(object sender, EventArgs e)
@@ -559,5 +589,5 @@ namespace PassWraith.Controls.MouseEvents
 
 public enum FilterType
 {
-    ALL, FAV, DEL
+    ALL, FAV, DEL, CARD
 }

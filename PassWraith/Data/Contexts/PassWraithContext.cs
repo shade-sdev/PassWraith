@@ -69,7 +69,7 @@ namespace PassWraith.Data
                 case FilterType.FAV:
                     query = query.Where(password =>
                         (string.IsNullOrEmpty(search) || password.WebSiteName.ToLower().Contains(search) || password.UserName.ToLower().Contains(search))
-                        && password.IsFavourite);
+                        && password.IsFavourite && !password.IsDeleted);
                     break;
 
                 case FilterType.DEL:
@@ -77,11 +77,16 @@ namespace PassWraith.Data
                         (string.IsNullOrEmpty(search) || password.WebSiteName.ToLower().Contains(search) || password.UserName.ToLower().Contains(search))
                         && password.IsDeleted);
                     break;
-
+                case FilterType.CARD:
+                    query = query.Where(password =>
+                        (string.IsNullOrEmpty(search) || password.WebSiteName.ToLower().Contains(search) || password.UserName.ToLower().Contains(search))
+                        && !password.IsDeleted && password.CredentialType == PasswordEntity.Type.Card);
+                    break;
                 case FilterType.ALL:
                 default:
                     query = query.Where(password =>
-                        string.IsNullOrEmpty(search) || password.WebSiteName.ToLower().Contains(search) || password.UserName.ToLower().Contains(search));
+                        (string.IsNullOrEmpty(search) || password.WebSiteName.ToLower().Contains(search) || password.UserName.ToLower().Contains(search))
+                        && !password.IsDeleted);
                     break;
             }
 
@@ -114,6 +119,31 @@ namespace PassWraith.Data
             SaveChanges();
         }
 
+        public async Task SaveAsync(PasswordEntity password)
+        {
+            passwords.Add(password);
+            await SaveChangesAsync();
+        }
+
+        public void Delete(int id)
+        {
+            var existingEntity = passwords.Find(id);
+            if (!existingEntity.IsDeleted)
+            {
+                existingEntity.DeletedDate = DateTime.Now;
+            }
+            existingEntity.IsDeleted = true;
+            SaveChanges();
+        }
+
+        public void Restore(int id)
+        {
+            var existingEntity = passwords.Find(id);
+            existingEntity.IsDeleted = false;
+            existingEntity.DeletedDate = null;
+            SaveChanges();
+        }
+
         public UserPasswordEntity Get()
         {
             return UserPasswords?.FirstOrDefault();
@@ -133,12 +163,6 @@ namespace PassWraith.Data
             }
 
             return 0;
-        }
-
-        public async Task SaveAsync(PasswordEntity password)
-        {
-            passwords.Add(password);
-            await SaveChangesAsync();
         }
     }
 }

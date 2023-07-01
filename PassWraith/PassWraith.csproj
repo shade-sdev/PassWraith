@@ -198,6 +198,12 @@
     <Compile Include="Forms\AddCredential.Designer.cs">
       <DependentUpon>AddCredential.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Import.Designer.cs">
+      <DependentUpon>Import.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,12 +248,16 @@
     <Compile Include="Utilities\FormHelper.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilities\Notification.cs" />
     <Compile Include="Utilities\PasswordHelper.cs" />
     <EmbeddedResource Include="Controls\PasswordHead.resx">
       <DependentUpon>PasswordHead.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddCredential.resx">
       <DependentUpon>AddCredential.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Import.resx">
+      <DependentUpon>Import.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -363,6 +373,12 @@
     <Content Include="InternalReferences\System.Numerics.Vectors.dll" />
     <Content Include="InternalReferences\System.Runtime.CompilerServices.Unsafe.dll" />
     <Content Include="InternalReferences\System.Threading.Tasks.Extensions.dll" />
+    <None Include="Resources\icons8_Magnetic_Card_40px.png" />
+    <None Include="Resources\icons8_upload_60px.png" />
+    <None Include="Resources\icons8_upload_500px.png" />
+    <None Include="Resources\icons8_restore_page_50px.png" />
+    <None Include="Resources\icons8_delete_24px.png" />
+    <None Include="Resources\icons8_export_30px.png" />
     <None Include="Resources\icons8_import_30px.png" />
     <None Include="Resources\Untitled-1.png" />
     <None Include="Resources\icons8_password_480px.png" />

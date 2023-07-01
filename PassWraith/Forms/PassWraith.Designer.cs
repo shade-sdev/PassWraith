@@ -37,48 +37,52 @@ namespace PassWraith
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PassWraith));
             this.leftPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnTrash = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFavourites = new Guna.UI2.WinForms.Guna2Button();
-            this.allItemsBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.minimizeControl = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.closeControl = new Guna.UI2.WinForms.Guna2ControlBox();
             this.midPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.searchBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.flpMain = new System.Windows.Forms.FlowLayoutPanel();
             this.mainFormBorderLess = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.leftDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.midDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.rightDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.rightPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnImport = new Guna.UI2.WinForms.Guna2Button();
-            this.editBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNotes = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.dispWebsitePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.dispBtnWebsiteCopy = new Guna.UI2.WinForms.Guna2Button();
             this.dispLblWebsiteName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.dispLblWebsiteTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.dispPasswordPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.dispTxtPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dispBtnPasswordView = new Guna.UI2.WinForms.Guna2Button();
-            this.dispBtnPasswordCopy = new Guna.UI2.WinForms.Guna2Button();
             this.dispLblPasswordTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.dispUsernamePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.dispBtnUsernameCopy = new Guna.UI2.WinForms.Guna2Button();
             this.dispLblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.dispLblUsernameTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.displayPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.Seperator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.starPicBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblDisplayUserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblDisplayWebsiteName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.displayPicBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.flpMainDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.gunaToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btnRestore = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExport = new Guna.UI2.WinForms.Guna2Button();
+            this.btnImport = new Guna.UI2.WinForms.Guna2Button();
+            this.editBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.dispBtnWebsiteCopy = new Guna.UI2.WinForms.Guna2Button();
+            this.dispBtnPasswordView = new Guna.UI2.WinForms.Guna2Button();
+            this.dispBtnPasswordCopy = new Guna.UI2.WinForms.Guna2Button();
+            this.dispBtnUsernameCopy = new Guna.UI2.WinForms.Guna2Button();
+            this.starPicBox = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.displayPicBox = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.searchBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnTrash = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFavourites = new Guna.UI2.WinForms.Guna2Button();
+            this.allItemsBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCard = new Guna.UI2.WinForms.Guna2Button();
             this.leftPanel.SuspendLayout();
             this.midPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -94,8 +98,9 @@ namespace PassWraith
             // leftPanel
             // 
             this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.leftPanel.Controls.Add(this.guna2ControlBox2);
-            this.leftPanel.Controls.Add(this.guna2ControlBox1);
+            this.leftPanel.Controls.Add(this.btnCard);
+            this.leftPanel.Controls.Add(this.minimizeControl);
+            this.leftPanel.Controls.Add(this.closeControl);
             this.leftPanel.Controls.Add(this.btnTrash);
             this.leftPanel.Controls.Add(this.btnFavourites);
             this.leftPanel.Controls.Add(this.allItemsBtn);
@@ -104,73 +109,30 @@ namespace PassWraith
             this.leftPanel.Size = new System.Drawing.Size(255, 625);
             this.leftPanel.TabIndex = 0;
             // 
-            // btnTrash
+            // minimizeControl
             // 
-            this.btnTrash.Animated = true;
-            this.btnTrash.BackColor = System.Drawing.Color.Transparent;
-            this.btnTrash.BorderRadius = 4;
-            this.btnTrash.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTrash.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTrash.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTrash.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTrash.FillColor = System.Drawing.Color.Transparent;
-            this.btnTrash.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnTrash.ForeColor = System.Drawing.Color.White;
-            this.btnTrash.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.btnTrash.Image = global::PassWraith.Properties.Resources.icons8_Bin_Windows_48px;
-            this.btnTrash.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTrash.Location = new System.Drawing.Point(14, 146);
-            this.btnTrash.Name = "btnTrash";
-            this.btnTrash.Size = new System.Drawing.Size(225, 35);
-            this.btnTrash.TabIndex = 2;
-            this.btnTrash.Tag = "DEL";
-            this.btnTrash.Text = "Trash";
-            this.btnTrash.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.minimizeControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimizeControl.BorderRadius = 6;
+            this.minimizeControl.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.minimizeControl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(202)))), ((int)(((byte)(78)))));
+            this.minimizeControl.IconColor = System.Drawing.Color.White;
+            this.minimizeControl.Location = new System.Drawing.Point(33, 13);
+            this.minimizeControl.Name = "minimizeControl";
+            this.minimizeControl.ShowIcon = false;
+            this.minimizeControl.Size = new System.Drawing.Size(13, 13);
+            this.minimizeControl.TabIndex = 4;
             // 
-            // btnFavourites
+            // closeControl
             // 
-            this.btnFavourites.Animated = true;
-            this.btnFavourites.BackColor = System.Drawing.Color.Transparent;
-            this.btnFavourites.BorderRadius = 4;
-            this.btnFavourites.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFavourites.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFavourites.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFavourites.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFavourites.FillColor = System.Drawing.Color.Transparent;
-            this.btnFavourites.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnFavourites.ForeColor = System.Drawing.Color.White;
-            this.btnFavourites.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.btnFavourites.Image = global::PassWraith.Properties.Resources.icons8_star_480px;
-            this.btnFavourites.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnFavourites.Location = new System.Drawing.Point(13, 105);
-            this.btnFavourites.Name = "btnFavourites";
-            this.btnFavourites.Size = new System.Drawing.Size(225, 35);
-            this.btnFavourites.TabIndex = 1;
-            this.btnFavourites.Tag = "FAV";
-            this.btnFavourites.Text = "Favourites";
-            this.btnFavourites.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // allItemsBtn
-            // 
-            this.allItemsBtn.Animated = true;
-            this.allItemsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.allItemsBtn.BorderRadius = 4;
-            this.allItemsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.allItemsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.allItemsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.allItemsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.allItemsBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.allItemsBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.allItemsBtn.ForeColor = System.Drawing.Color.White;
-            this.allItemsBtn.Image = global::PassWraith.Properties.Resources.icons8_Security_Shield_Green_512px;
-            this.allItemsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.allItemsBtn.Location = new System.Drawing.Point(14, 64);
-            this.allItemsBtn.Name = "allItemsBtn";
-            this.allItemsBtn.Size = new System.Drawing.Size(225, 35);
-            this.allItemsBtn.TabIndex = 0;
-            this.allItemsBtn.Tag = "ALL";
-            this.allItemsBtn.Text = "All Items";
-            this.allItemsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.closeControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeControl.BorderRadius = 6;
+            this.closeControl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(96)))), ((int)(((byte)(92)))));
+            this.closeControl.IconColor = System.Drawing.Color.White;
+            this.closeControl.Location = new System.Drawing.Point(14, 13);
+            this.closeControl.Name = "closeControl";
+            this.closeControl.ShowIcon = false;
+            this.closeControl.Size = new System.Drawing.Size(13, 13);
+            this.closeControl.TabIndex = 3;
             // 
             // midPanel
             // 
@@ -182,52 +144,6 @@ namespace PassWraith
             this.midPanel.Name = "midPanel";
             this.midPanel.Size = new System.Drawing.Size(375, 625);
             this.midPanel.TabIndex = 1;
-            // 
-            // addBtn
-            // 
-            this.addBtn.BorderRadius = 4;
-            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Image = global::PassWraith.Properties.Resources.icons8_plus_math_30px;
-            this.addBtn.ImageSize = new System.Drawing.Size(18, 18);
-            this.addBtn.Location = new System.Drawing.Point(324, 22);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(33, 32);
-            this.addBtn.TabIndex = 2;
-            this.addBtn.Tag = "AddButton";
-            // 
-            // searchBox
-            // 
-            this.searchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.searchBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.searchBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchBox.BorderRadius = 4;
-            this.searchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.searchBox.DefaultText = "";
-            this.searchBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.searchBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.searchBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.searchBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.searchBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.searchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.searchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchBox.IconLeft = global::PassWraith.Properties.Resources.icons8_search_24px;
-            this.searchBox.Location = new System.Drawing.Point(15, 22);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.PasswordChar = '\0';
-            this.searchBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.searchBox.PlaceholderText = "Search Vault";
-            this.searchBox.SelectedText = "";
-            this.searchBox.Size = new System.Drawing.Size(292, 32);
-            this.searchBox.TabIndex = 1;
-            this.searchBox.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // flpMain
             // 
@@ -266,6 +182,9 @@ namespace PassWraith
             // rightPanel
             // 
             this.rightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rightPanel.Controls.Add(this.btnRestore);
+            this.rightPanel.Controls.Add(this.btnDelete);
+            this.rightPanel.Controls.Add(this.btnExport);
             this.rightPanel.Controls.Add(this.btnImport);
             this.rightPanel.Controls.Add(this.editBtn);
             this.rightPanel.Controls.Add(this.guna2Panel1);
@@ -278,44 +197,6 @@ namespace PassWraith
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.Size = new System.Drawing.Size(512, 625);
             this.rightPanel.TabIndex = 2;
-            // 
-            // btnImport
-            // 
-            this.btnImport.BorderRadius = 2;
-            this.btnImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnImport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.btnImport.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.ForeColor = System.Drawing.Color.White;
-            this.btnImport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.btnImport.Image = global::PassWraith.Properties.Resources.icons8_import_30px;
-            this.btnImport.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnImport.Location = new System.Drawing.Point(128, 30);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(68, 24);
-            this.btnImport.TabIndex = 8;
-            this.btnImport.Text = "Import";
-            // 
-            // editBtn
-            // 
-            this.editBtn.BorderRadius = 2;
-            this.editBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.editBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.editBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.editBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.editBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.editBtn.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.ForeColor = System.Drawing.Color.White;
-            this.editBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.editBtn.Image = global::PassWraith.Properties.Resources.icons8_edit_24px;
-            this.editBtn.ImageSize = new System.Drawing.Size(16, 16);
-            this.editBtn.Location = new System.Drawing.Point(45, 30);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(68, 24);
-            this.editBtn.TabIndex = 7;
-            this.editBtn.Text = "Edit";
             // 
             // guna2Panel1
             // 
@@ -385,27 +266,6 @@ namespace PassWraith
             this.dispWebsitePanel.Size = new System.Drawing.Size(422, 60);
             this.dispWebsitePanel.TabIndex = 3;
             // 
-            // dispBtnWebsiteCopy
-            // 
-            this.dispBtnWebsiteCopy.BackColor = System.Drawing.Color.Transparent;
-            this.dispBtnWebsiteCopy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.dispBtnWebsiteCopy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.dispBtnWebsiteCopy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.dispBtnWebsiteCopy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.dispBtnWebsiteCopy.FillColor = System.Drawing.Color.Transparent;
-            this.dispBtnWebsiteCopy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dispBtnWebsiteCopy.ForeColor = System.Drawing.Color.White;
-            this.dispBtnWebsiteCopy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispBtnWebsiteCopy.Image = global::PassWraith.Properties.Resources.icons8_clone_figure_24px;
-            this.dispBtnWebsiteCopy.ImageSize = new System.Drawing.Size(18, 18);
-            this.dispBtnWebsiteCopy.Location = new System.Drawing.Point(387, 20);
-            this.dispBtnWebsiteCopy.Name = "dispBtnWebsiteCopy";
-            this.dispBtnWebsiteCopy.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispBtnWebsiteCopy.Size = new System.Drawing.Size(20, 20);
-            this.dispBtnWebsiteCopy.TabIndex = 5;
-            this.dispBtnWebsiteCopy.Tag = "Copy";
-            this.dispBtnWebsiteCopy.Visible = false;
-            // 
             // dispLblWebsiteName
             // 
             this.dispLblWebsiteName.AutoSize = false;
@@ -466,48 +326,6 @@ namespace PassWraith
             this.dispTxtPassword.TabIndex = 7;
             this.dispTxtPassword.UseSystemPasswordChar = true;
             // 
-            // dispBtnPasswordView
-            // 
-            this.dispBtnPasswordView.BackColor = System.Drawing.Color.Transparent;
-            this.dispBtnPasswordView.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.dispBtnPasswordView.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.dispBtnPasswordView.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.dispBtnPasswordView.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.dispBtnPasswordView.FillColor = System.Drawing.Color.Transparent;
-            this.dispBtnPasswordView.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dispBtnPasswordView.ForeColor = System.Drawing.Color.White;
-            this.dispBtnPasswordView.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispBtnPasswordView.Image = global::PassWraith.Properties.Resources.icons8_eye_24px;
-            this.dispBtnPasswordView.ImageSize = new System.Drawing.Size(18, 18);
-            this.dispBtnPasswordView.Location = new System.Drawing.Point(358, 22);
-            this.dispBtnPasswordView.Name = "dispBtnPasswordView";
-            this.dispBtnPasswordView.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispBtnPasswordView.Size = new System.Drawing.Size(20, 20);
-            this.dispBtnPasswordView.TabIndex = 6;
-            this.dispBtnPasswordView.Tag = "View";
-            this.dispBtnPasswordView.Visible = false;
-            // 
-            // dispBtnPasswordCopy
-            // 
-            this.dispBtnPasswordCopy.BackColor = System.Drawing.Color.Transparent;
-            this.dispBtnPasswordCopy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.dispBtnPasswordCopy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.dispBtnPasswordCopy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.dispBtnPasswordCopy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.dispBtnPasswordCopy.FillColor = System.Drawing.Color.Transparent;
-            this.dispBtnPasswordCopy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dispBtnPasswordCopy.ForeColor = System.Drawing.Color.White;
-            this.dispBtnPasswordCopy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispBtnPasswordCopy.Image = global::PassWraith.Properties.Resources.icons8_clone_figure_24px;
-            this.dispBtnPasswordCopy.ImageSize = new System.Drawing.Size(18, 18);
-            this.dispBtnPasswordCopy.Location = new System.Drawing.Point(387, 22);
-            this.dispBtnPasswordCopy.Name = "dispBtnPasswordCopy";
-            this.dispBtnPasswordCopy.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispBtnPasswordCopy.Size = new System.Drawing.Size(20, 20);
-            this.dispBtnPasswordCopy.TabIndex = 5;
-            this.dispBtnPasswordCopy.Tag = "Copy";
-            this.dispBtnPasswordCopy.Visible = false;
-            // 
             // dispLblPasswordTitle
             // 
             this.dispLblPasswordTitle.AutoSize = false;
@@ -531,27 +349,6 @@ namespace PassWraith
             this.dispUsernamePanel.Name = "dispUsernamePanel";
             this.dispUsernamePanel.Size = new System.Drawing.Size(422, 60);
             this.dispUsernamePanel.TabIndex = 1;
-            // 
-            // dispBtnUsernameCopy
-            // 
-            this.dispBtnUsernameCopy.BackColor = System.Drawing.Color.Transparent;
-            this.dispBtnUsernameCopy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.dispBtnUsernameCopy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.dispBtnUsernameCopy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.dispBtnUsernameCopy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.dispBtnUsernameCopy.FillColor = System.Drawing.Color.Transparent;
-            this.dispBtnUsernameCopy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dispBtnUsernameCopy.ForeColor = System.Drawing.Color.White;
-            this.dispBtnUsernameCopy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispBtnUsernameCopy.Image = global::PassWraith.Properties.Resources.icons8_clone_figure_24px;
-            this.dispBtnUsernameCopy.ImageSize = new System.Drawing.Size(18, 18);
-            this.dispBtnUsernameCopy.Location = new System.Drawing.Point(387, 20);
-            this.dispBtnUsernameCopy.Name = "dispBtnUsernameCopy";
-            this.dispBtnUsernameCopy.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispBtnUsernameCopy.Size = new System.Drawing.Size(20, 20);
-            this.dispBtnUsernameCopy.TabIndex = 5;
-            this.dispBtnUsernameCopy.Tag = "Copy";
-            this.dispBtnUsernameCopy.Visible = false;
             // 
             // dispLblUsername
             // 
@@ -598,18 +395,6 @@ namespace PassWraith
             this.Seperator1.Size = new System.Drawing.Size(422, 10);
             this.Seperator1.TabIndex = 1;
             // 
-            // starPicBox
-            // 
-            this.starPicBox.FillColor = System.Drawing.Color.Transparent;
-            this.starPicBox.Image = global::PassWraith.Properties.Resources.icons8_star_60px;
-            this.starPicBox.ImageRotate = 0F;
-            this.starPicBox.Location = new System.Drawing.Point(376, 15);
-            this.starPicBox.Name = "starPicBox";
-            this.starPicBox.Size = new System.Drawing.Size(25, 25);
-            this.starPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.starPicBox.TabIndex = 3;
-            this.starPicBox.TabStop = false;
-            // 
             // lblDisplayUserName
             // 
             this.lblDisplayUserName.AutoSize = false;
@@ -634,19 +419,6 @@ namespace PassWraith
             this.lblDisplayWebsiteName.TabIndex = 1;
             this.lblDisplayWebsiteName.Text = "Adobe";
             // 
-            // displayPicBox
-            // 
-            this.displayPicBox.BorderRadius = 2;
-            this.displayPicBox.FillColor = System.Drawing.Color.Transparent;
-            this.displayPicBox.Image = global::PassWraith.Properties.Resources.icons8_adobe_photoshop_96px;
-            this.displayPicBox.ImageRotate = 0F;
-            this.displayPicBox.Location = new System.Drawing.Point(7, 0);
-            this.displayPicBox.Name = "displayPicBox";
-            this.displayPicBox.Size = new System.Drawing.Size(60, 60);
-            this.displayPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.displayPicBox.TabIndex = 0;
-            this.displayPicBox.TabStop = false;
-            // 
             // flpMainDrag
             // 
             this.flpMainDrag.DockIndicatorTransparencyValue = 0.6D;
@@ -660,30 +432,346 @@ namespace PassWraith
             this.gunaToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.gunaToolTip.ToolTipTitle = "Expiry Date";
             // 
-            // guna2ControlBox1
+            // btnRestore
             // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.BorderRadius = 6;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(96)))), ((int)(((byte)(92)))));
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(14, 13);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.ShowIcon = false;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(13, 13);
-            this.guna2ControlBox1.TabIndex = 3;
+            this.btnRestore.BorderRadius = 2;
+            this.btnRestore.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRestore.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRestore.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRestore.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRestore.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnRestore.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestore.ForeColor = System.Drawing.Color.White;
+            this.btnRestore.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnRestore.Image = global::PassWraith.Properties.Resources.icons8_restore_page_50px;
+            this.btnRestore.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnRestore.Location = new System.Drawing.Point(378, 30);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(68, 24);
+            this.btnRestore.TabIndex = 11;
+            this.btnRestore.Text = "Restore";
             // 
-            // guna2ControlBox2
+            // btnDelete
             // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BorderRadius = 6;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(202)))), ((int)(((byte)(78)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(33, 13);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.ShowIcon = false;
-            this.guna2ControlBox2.Size = new System.Drawing.Size(13, 13);
-            this.guna2ControlBox2.TabIndex = 4;
+            this.btnDelete.BorderRadius = 2;
+            this.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnDelete.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnDelete.Image = global::PassWraith.Properties.Resources.icons8_delete_24px;
+            this.btnDelete.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnDelete.Location = new System.Drawing.Point(128, 30);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(68, 24);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "Delete";
+            // 
+            // btnExport
+            // 
+            this.btnExport.BorderRadius = 2;
+            this.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnExport.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnExport.Image = global::PassWraith.Properties.Resources.icons8_export_30px;
+            this.btnExport.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnExport.Location = new System.Drawing.Point(294, 30);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(68, 24);
+            this.btnExport.TabIndex = 9;
+            this.btnExport.Text = "Export";
+            // 
+            // btnImport
+            // 
+            this.btnImport.BorderRadius = 2;
+            this.btnImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnImport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnImport.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.ForeColor = System.Drawing.Color.White;
+            this.btnImport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.btnImport.Image = global::PassWraith.Properties.Resources.icons8_import_30px;
+            this.btnImport.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnImport.Location = new System.Drawing.Point(211, 30);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(68, 24);
+            this.btnImport.TabIndex = 8;
+            this.btnImport.Text = "Import";
+            // 
+            // editBtn
+            // 
+            this.editBtn.BorderRadius = 2;
+            this.editBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.editBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.editBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.editBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.editBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.editBtn.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.editBtn.Image = global::PassWraith.Properties.Resources.icons8_edit_24px;
+            this.editBtn.ImageSize = new System.Drawing.Size(16, 16);
+            this.editBtn.Location = new System.Drawing.Point(45, 30);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(68, 24);
+            this.editBtn.TabIndex = 7;
+            this.editBtn.Text = "Edit";
+            // 
+            // dispBtnWebsiteCopy
+            // 
+            this.dispBtnWebsiteCopy.BackColor = System.Drawing.Color.Transparent;
+            this.dispBtnWebsiteCopy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.dispBtnWebsiteCopy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.dispBtnWebsiteCopy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.dispBtnWebsiteCopy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.dispBtnWebsiteCopy.FillColor = System.Drawing.Color.Transparent;
+            this.dispBtnWebsiteCopy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dispBtnWebsiteCopy.ForeColor = System.Drawing.Color.White;
+            this.dispBtnWebsiteCopy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispBtnWebsiteCopy.Image = global::PassWraith.Properties.Resources.icons8_clone_figure_24px;
+            this.dispBtnWebsiteCopy.ImageSize = new System.Drawing.Size(18, 18);
+            this.dispBtnWebsiteCopy.Location = new System.Drawing.Point(387, 20);
+            this.dispBtnWebsiteCopy.Name = "dispBtnWebsiteCopy";
+            this.dispBtnWebsiteCopy.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispBtnWebsiteCopy.Size = new System.Drawing.Size(20, 20);
+            this.dispBtnWebsiteCopy.TabIndex = 5;
+            this.dispBtnWebsiteCopy.Tag = "Copy";
+            this.dispBtnWebsiteCopy.Visible = false;
+            // 
+            // dispBtnPasswordView
+            // 
+            this.dispBtnPasswordView.BackColor = System.Drawing.Color.Transparent;
+            this.dispBtnPasswordView.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.dispBtnPasswordView.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.dispBtnPasswordView.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.dispBtnPasswordView.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.dispBtnPasswordView.FillColor = System.Drawing.Color.Transparent;
+            this.dispBtnPasswordView.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dispBtnPasswordView.ForeColor = System.Drawing.Color.White;
+            this.dispBtnPasswordView.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispBtnPasswordView.Image = global::PassWraith.Properties.Resources.icons8_eye_24px;
+            this.dispBtnPasswordView.ImageSize = new System.Drawing.Size(18, 18);
+            this.dispBtnPasswordView.Location = new System.Drawing.Point(358, 22);
+            this.dispBtnPasswordView.Name = "dispBtnPasswordView";
+            this.dispBtnPasswordView.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispBtnPasswordView.Size = new System.Drawing.Size(20, 20);
+            this.dispBtnPasswordView.TabIndex = 6;
+            this.dispBtnPasswordView.Tag = "View";
+            this.dispBtnPasswordView.Visible = false;
+            // 
+            // dispBtnPasswordCopy
+            // 
+            this.dispBtnPasswordCopy.BackColor = System.Drawing.Color.Transparent;
+            this.dispBtnPasswordCopy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.dispBtnPasswordCopy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.dispBtnPasswordCopy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.dispBtnPasswordCopy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.dispBtnPasswordCopy.FillColor = System.Drawing.Color.Transparent;
+            this.dispBtnPasswordCopy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dispBtnPasswordCopy.ForeColor = System.Drawing.Color.White;
+            this.dispBtnPasswordCopy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispBtnPasswordCopy.Image = global::PassWraith.Properties.Resources.icons8_clone_figure_24px;
+            this.dispBtnPasswordCopy.ImageSize = new System.Drawing.Size(18, 18);
+            this.dispBtnPasswordCopy.Location = new System.Drawing.Point(387, 22);
+            this.dispBtnPasswordCopy.Name = "dispBtnPasswordCopy";
+            this.dispBtnPasswordCopy.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispBtnPasswordCopy.Size = new System.Drawing.Size(20, 20);
+            this.dispBtnPasswordCopy.TabIndex = 5;
+            this.dispBtnPasswordCopy.Tag = "Copy";
+            this.dispBtnPasswordCopy.Visible = false;
+            // 
+            // dispBtnUsernameCopy
+            // 
+            this.dispBtnUsernameCopy.BackColor = System.Drawing.Color.Transparent;
+            this.dispBtnUsernameCopy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.dispBtnUsernameCopy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.dispBtnUsernameCopy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.dispBtnUsernameCopy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.dispBtnUsernameCopy.FillColor = System.Drawing.Color.Transparent;
+            this.dispBtnUsernameCopy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dispBtnUsernameCopy.ForeColor = System.Drawing.Color.White;
+            this.dispBtnUsernameCopy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispBtnUsernameCopy.Image = global::PassWraith.Properties.Resources.icons8_clone_figure_24px;
+            this.dispBtnUsernameCopy.ImageSize = new System.Drawing.Size(18, 18);
+            this.dispBtnUsernameCopy.Location = new System.Drawing.Point(387, 20);
+            this.dispBtnUsernameCopy.Name = "dispBtnUsernameCopy";
+            this.dispBtnUsernameCopy.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispBtnUsernameCopy.Size = new System.Drawing.Size(20, 20);
+            this.dispBtnUsernameCopy.TabIndex = 5;
+            this.dispBtnUsernameCopy.Tag = "Copy";
+            this.dispBtnUsernameCopy.Visible = false;
+            // 
+            // starPicBox
+            // 
+            this.starPicBox.FillColor = System.Drawing.Color.Transparent;
+            this.starPicBox.Image = global::PassWraith.Properties.Resources.icons8_star_60px;
+            this.starPicBox.ImageRotate = 0F;
+            this.starPicBox.Location = new System.Drawing.Point(376, 15);
+            this.starPicBox.Name = "starPicBox";
+            this.starPicBox.Size = new System.Drawing.Size(25, 25);
+            this.starPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.starPicBox.TabIndex = 3;
+            this.starPicBox.TabStop = false;
+            // 
+            // displayPicBox
+            // 
+            this.displayPicBox.BorderRadius = 2;
+            this.displayPicBox.FillColor = System.Drawing.Color.Transparent;
+            this.displayPicBox.Image = global::PassWraith.Properties.Resources.icons8_adobe_photoshop_96px;
+            this.displayPicBox.ImageRotate = 0F;
+            this.displayPicBox.Location = new System.Drawing.Point(7, 0);
+            this.displayPicBox.Name = "displayPicBox";
+            this.displayPicBox.Size = new System.Drawing.Size(60, 60);
+            this.displayPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.displayPicBox.TabIndex = 0;
+            this.displayPicBox.TabStop = false;
+            // 
+            // addBtn
+            // 
+            this.addBtn.BorderRadius = 4;
+            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addBtn.ForeColor = System.Drawing.Color.White;
+            this.addBtn.Image = global::PassWraith.Properties.Resources.icons8_plus_math_30px;
+            this.addBtn.ImageSize = new System.Drawing.Size(18, 18);
+            this.addBtn.Location = new System.Drawing.Point(324, 22);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(33, 32);
+            this.addBtn.TabIndex = 2;
+            this.addBtn.Tag = "AddButton";
+            // 
+            // searchBox
+            // 
+            this.searchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.searchBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.searchBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchBox.BorderRadius = 4;
+            this.searchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchBox.DefaultText = "";
+            this.searchBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.searchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.searchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchBox.IconLeft = global::PassWraith.Properties.Resources.icons8_search_24px;
+            this.searchBox.Location = new System.Drawing.Point(15, 22);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.PasswordChar = '\0';
+            this.searchBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.searchBox.PlaceholderText = "Search Vault";
+            this.searchBox.SelectedText = "";
+            this.searchBox.Size = new System.Drawing.Size(292, 32);
+            this.searchBox.TabIndex = 1;
+            this.searchBox.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // btnTrash
+            // 
+            this.btnTrash.Animated = true;
+            this.btnTrash.BackColor = System.Drawing.Color.Transparent;
+            this.btnTrash.BorderRadius = 4;
+            this.btnTrash.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTrash.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTrash.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTrash.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTrash.FillColor = System.Drawing.Color.Transparent;
+            this.btnTrash.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnTrash.ForeColor = System.Drawing.Color.White;
+            this.btnTrash.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.btnTrash.Image = global::PassWraith.Properties.Resources.icons8_Bin_Windows_48px;
+            this.btnTrash.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTrash.Location = new System.Drawing.Point(15, 187);
+            this.btnTrash.Name = "btnTrash";
+            this.btnTrash.Size = new System.Drawing.Size(225, 35);
+            this.btnTrash.TabIndex = 2;
+            this.btnTrash.Tag = "DEL";
+            this.btnTrash.Text = "Trash";
+            this.btnTrash.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnFavourites
+            // 
+            this.btnFavourites.Animated = true;
+            this.btnFavourites.BackColor = System.Drawing.Color.Transparent;
+            this.btnFavourites.BorderRadius = 4;
+            this.btnFavourites.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFavourites.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFavourites.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFavourites.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFavourites.FillColor = System.Drawing.Color.Transparent;
+            this.btnFavourites.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnFavourites.ForeColor = System.Drawing.Color.White;
+            this.btnFavourites.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.btnFavourites.Image = global::PassWraith.Properties.Resources.icons8_star_480px;
+            this.btnFavourites.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFavourites.Location = new System.Drawing.Point(14, 146);
+            this.btnFavourites.Name = "btnFavourites";
+            this.btnFavourites.Size = new System.Drawing.Size(225, 35);
+            this.btnFavourites.TabIndex = 1;
+            this.btnFavourites.Tag = "FAV";
+            this.btnFavourites.Text = "Favourites";
+            this.btnFavourites.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // allItemsBtn
+            // 
+            this.allItemsBtn.Animated = true;
+            this.allItemsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.allItemsBtn.BorderRadius = 4;
+            this.allItemsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.allItemsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.allItemsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.allItemsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.allItemsBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.allItemsBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.allItemsBtn.ForeColor = System.Drawing.Color.White;
+            this.allItemsBtn.Image = global::PassWraith.Properties.Resources.icons8_Security_Shield_Green_512px;
+            this.allItemsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.allItemsBtn.Location = new System.Drawing.Point(14, 64);
+            this.allItemsBtn.Name = "allItemsBtn";
+            this.allItemsBtn.Size = new System.Drawing.Size(225, 35);
+            this.allItemsBtn.TabIndex = 0;
+            this.allItemsBtn.Tag = "ALL";
+            this.allItemsBtn.Text = "All Items";
+            this.allItemsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnCard
+            // 
+            this.btnCard.Animated = true;
+            this.btnCard.BackColor = System.Drawing.Color.Transparent;
+            this.btnCard.BorderRadius = 4;
+            this.btnCard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCard.FillColor = System.Drawing.Color.Transparent;
+            this.btnCard.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCard.ForeColor = System.Drawing.Color.White;
+            this.btnCard.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.btnCard.Image = global::PassWraith.Properties.Resources.icons8_Magnetic_Card_40px;
+            this.btnCard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCard.Location = new System.Drawing.Point(14, 105);
+            this.btnCard.Name = "btnCard";
+            this.btnCard.Size = new System.Drawing.Size(225, 35);
+            this.btnCard.TabIndex = 5;
+            this.btnCard.Tag = "CARD";
+            this.btnCard.Text = "Cards";
+            this.btnCard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // PassWraith
             // 
@@ -778,6 +866,8 @@ namespace PassWraith
                 DisplayPicBox = this.displayPicBox,
                 AddBtn = this.addBtn,
                 EditBtn = this.editBtn,
+                DeleteBtn = this.btnDelete,
+                RestoreBtn = this.btnRestore,
                 DispLblUsernameTitle = this.dispLblUsernameTitle,
                 DispLblPasswordTitle = this.dispLblPasswordTitle,
                 DispLblWebsiteTitle = this.dispLblWebsiteTitle,
@@ -801,7 +891,9 @@ namespace PassWraith
                 BtnImport = this.btnImport,
                 AllItemsBtn = this.allItemsBtn,
                 BtnFavourites = this.btnFavourites,
+                BtnCards = this.btnCard,
                 BtnTrash = this.btnTrash,
+                BtnExport = this.btnExport,
                
                
             };
@@ -809,8 +901,12 @@ namespace PassWraith
 
         public Guna2Button btnImport;
         private System.Windows.Forms.Timer mainTimer;
-        private Guna2ControlBox guna2ControlBox1;
-        private Guna2ControlBox guna2ControlBox2;
+        private Guna2ControlBox closeControl;
+        private Guna2ControlBox minimizeControl;
+        public Guna2Button btnExport;
+        public Guna2Button btnDelete;
+        public Guna2Button btnRestore;
+        public Guna2Button btnCard;
     }
 }
 

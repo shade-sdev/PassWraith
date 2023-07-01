@@ -11,13 +11,46 @@ using PassWraith.Data;
 using PassWraith.Utilities;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System;
+using System.Runtime.InteropServices.ComTypes;
+using System.Data.Entity.Core.Metadata.Edm;
 
 public class CommaSeparatedHelper
 {
 
     private static readonly string VALID_WEBSITE_REGEX = @"^(http(s)?://)?([\w-]+.)+[\w-]+(/[\w- ;,./?%&=]*)?$";
 
-    public static async Task<List<PasswordEntity>> ToPasswordEntitiesAsync(string filePath)
+
+    public static async Task ImportExcel(string filePath, IPassWraithContext _context, bool isForChrome)
+    {
+        await Task.Run(async () =>
+        {
+            List<PasswordEntity> passwordEntities = await ToPasswordEntitiesAsync(filePath, isForChrome);
+            List<List<PasswordEntity>> batches = SplitIntoBatches(passwordEntities, 100);
+
+            foreach (var batch in batches)
+            {
+                await Task.Run(() => ProcessExcelData(batch, _context, isForChrome));
+            }
+
+            MessageBox.Show("Processing completed!");
+        });
+    }
+
+    public static void ExportExcel(IPassWraithContext _context)
+    {
+        List<PasswordEntity> passwordEntities = _context.passwords.ToList();
+        using (var writer = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/PassCrypt" + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".csv"))
+        using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+        {
+            csv.WriteHeader<PasswordEntity>();
+            csv.NextRecord();
+            csv.WriteRecords(passwordEntities);
+        }
+        MessageBox.Show("Exported to your Desktop!");
+    }
+
+    public static async Task<List<PasswordEntity>> ToPasswordEntitiesAsync(string filePath, bool isForChrome)
     {
         var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
@@ -43,16 +76,40 @@ public class CommaSeparatedHelper
             {
                 Parallel.ForEach(records, record =>
                 {
-                    var passwordEntity = new PasswordEntity
+                    if (isForChrome)
                     {
-                        WebSiteName = record[0],
-                        WebsiteSiteUrl = record[1],
-                        UserName = record[2],
-                        Password = record[3],
-                        Notes = record[4]
-                    };
+                        var passwordEntity = new PasswordEntity
+                        {
+                            WebSiteName = record[0],
+                            WebsiteSiteUrl = record[1],
+                            UserName = record[2],
+                            Password = record[3],
+                            Notes = record[4]
+                        };
+                        passwordEntities.Add(passwordEntity);
+                    }
+                    else
+                    {
+                        var passwordEntity = new PasswordEntity
+                        {
+                            UserName = record[1],
+                            Password = record[2],
+                            WebSiteName = record[3],
+                            WebsiteSiteUrl = record[4],
+                            WebSiteIconUrl = record[5],
+                            CardNumber = record[6],
+                            PIN = record[7],
+                            CardExpiryDate = string.IsNullOrEmpty(record[8]) ? null : (DateTime?)DateTime.Parse(record[8]),
+                            Notes = record[9],
+                            IsFavourite = false,
+                            IsDeleted = false,
+                            CredentialType = (PasswordEntity.Type)Enum.Parse(typeof(PasswordEntity.Type), record[12]),
+                            CreationDate = DateTime.Now
 
-                    passwordEntities.Add(passwordEntity);
+                        };
+                        passwordEntities.Add(passwordEntity);
+                    }
+
                 });
             });
         }
@@ -60,34 +117,39 @@ public class CommaSeparatedHelper
         return passwordEntities.ToList();
     }
 
-    public static async void ImportExcel(string filePath, IPassWraithContext _context)
-    {
-        await Task.Run(async () =>
-        {
-            List<PasswordEntity> passwordEntities = await ToPasswordEntitiesAsync(filePath);
-            List<List<PasswordEntity>> batches = SplitIntoBatches(passwordEntities, 100);
-
-            foreach (var batch in batches)
-            {
-                await Task.Run(() => ProcessExcelData(batch, _context));
-            }
-
-            MessageBox.Show("Processing completed!");
-        });
-    }
-
-    private static void ProcessExcelData(List<PasswordEntity> passwordEntities, IPassWraithContext _context)
+    private static void ProcessExcelData(List<PasswordEntity> passwordEntities, IPassWraithContext _context, bool isForChrome)
     {
         foreach (var entity in passwordEntities)
         {
-            _context.Save(new PasswordEntity
+            if (isForChrome)
             {
-                WebSiteName = string.IsNullOrEmpty(entity.WebSiteName) ? "Dummy" : entity.WebSiteName,
-                WebsiteSiteUrl = BuildWebsiteUrl(entity.WebsiteSiteUrl),
-                UserName = string.IsNullOrEmpty(entity.UserName) ? "Dummy" : entity.UserName,
-                Notes = entity.Notes,
-                Password = string.IsNullOrEmpty(entity.Password) ? PasswordHelper.EncryptString("Dummy", PasswordHelper.GetKey()) : PasswordHelper.EncryptString(entity.Password, PasswordHelper.GetKey())
-            });
+                _context.Save(new PasswordEntity
+                {
+                    WebSiteName = string.IsNullOrEmpty(entity.WebSiteName) ? "Dummy" : entity.WebSiteName,
+                    WebsiteSiteUrl = BuildWebsiteUrl(entity.WebsiteSiteUrl),
+                    UserName = string.IsNullOrEmpty(entity.UserName) ? "Dummy" : entity.UserName,
+                    Notes = entity.Notes,
+                    Password = string.IsNullOrEmpty(entity.Password) ? PasswordHelper.EncryptString("Dummy", PasswordHelper.GetKey()) : PasswordHelper.EncryptString(entity.Password, PasswordHelper.GetKey())
+                });
+            } else
+            {
+                _context.Save(new PasswordEntity
+                {
+                    WebSiteName = string.IsNullOrEmpty(entity.WebSiteName) ? "Dummy" : entity.WebSiteName,
+                    WebsiteSiteUrl = BuildWebsiteUrl(entity.WebsiteSiteUrl),
+                    UserName = string.IsNullOrEmpty(entity.UserName) ? "Dummy" : entity.UserName,
+                    Password = entity.Password,
+                    WebSiteIconUrl = string.IsNullOrEmpty(entity.WebSiteIconUrl) ? null : entity.WebSiteIconUrl,
+                    CardNumber = entity.CardNumber,
+                    PIN = entity.PIN,
+                    CardExpiryDate = entity.CardExpiryDate,
+                    Notes = entity.Notes,
+                    IsFavourite = false,
+                    IsDeleted = false,
+                    CredentialType = entity.CredentialType,
+                    CreationDate = entity.CreationDate
+                });
+            }
         }
     }
 

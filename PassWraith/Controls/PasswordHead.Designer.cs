@@ -43,6 +43,7 @@
             this.mainPanel.Controls.Add(this.usernameLbl);
             this.mainPanel.Controls.Add(this.titleLbl);
             this.mainPanel.Controls.Add(this.passIconPic);
+            this.mainPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
