@@ -37,52 +37,52 @@ namespace PassWraith
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PassWraith));
             this.leftPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCard = new Guna.UI2.WinForms.Guna2Button();
             this.minimizeControl = new Guna.UI2.WinForms.Guna2ControlBox();
             this.closeControl = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btnTrash = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFavourites = new Guna.UI2.WinForms.Guna2Button();
+            this.allItemsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.midPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.searchBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.flpMain = new System.Windows.Forms.FlowLayoutPanel();
             this.mainFormBorderLess = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.leftDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.midDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.rightDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.rightPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblNotes = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.Separator2 = new Guna.UI2.WinForms.Guna2Separator();
-            this.dispWebsitePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.dispLblWebsiteName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.dispLblWebsiteTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.dispPasswordPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.dispTxtPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dispLblPasswordTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.dispUsernamePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.dispLblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.dispLblUsernameTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.displayPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.Seperator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.lblDisplayUserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblDisplayWebsiteName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.flpMainDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.gunaToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.btnRestore = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.btnImport = new Guna.UI2.WinForms.Guna2Button();
             this.editBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblNotes = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.Separator2 = new Guna.UI2.WinForms.Guna2Separator();
+            this.dispWebsitePanel = new Guna.UI2.WinForms.Guna2Panel();
             this.dispBtnWebsiteCopy = new Guna.UI2.WinForms.Guna2Button();
+            this.dispLblWebsiteName = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.dispLblWebsiteTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.dispPasswordPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.dispTxtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.dispBtnPasswordView = new Guna.UI2.WinForms.Guna2Button();
             this.dispBtnPasswordCopy = new Guna.UI2.WinForms.Guna2Button();
+            this.dispLblPasswordTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.dispUsernamePanel = new Guna.UI2.WinForms.Guna2Panel();
             this.dispBtnUsernameCopy = new Guna.UI2.WinForms.Guna2Button();
+            this.dispLblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.dispLblUsernameTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.displayPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Seperator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.starPicBox = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblDisplayUserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblDisplayWebsiteName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.displayPicBox = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.searchBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnTrash = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFavourites = new Guna.UI2.WinForms.Guna2Button();
-            this.allItemsBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCard = new Guna.UI2.WinForms.Guna2Button();
+            this.flpMainDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.gunaToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.leftPanel.SuspendLayout();
             this.midPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -109,6 +109,29 @@ namespace PassWraith
             this.leftPanel.Size = new System.Drawing.Size(255, 625);
             this.leftPanel.TabIndex = 0;
             // 
+            // btnCard
+            // 
+            this.btnCard.Animated = true;
+            this.btnCard.BackColor = System.Drawing.Color.Transparent;
+            this.btnCard.BorderRadius = 4;
+            this.btnCard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCard.FillColor = System.Drawing.Color.Transparent;
+            this.btnCard.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCard.ForeColor = System.Drawing.Color.White;
+            this.btnCard.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.btnCard.Image = global::PassWraith.Properties.Resources.icons8_Magnetic_Card_40px;
+            this.btnCard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCard.Location = new System.Drawing.Point(14, 105);
+            this.btnCard.Name = "btnCard";
+            this.btnCard.Size = new System.Drawing.Size(225, 35);
+            this.btnCard.TabIndex = 5;
+            this.btnCard.Tag = "CARD";
+            this.btnCard.Text = "Cards";
+            this.btnCard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // minimizeControl
             // 
             this.minimizeControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -134,6 +157,74 @@ namespace PassWraith
             this.closeControl.Size = new System.Drawing.Size(13, 13);
             this.closeControl.TabIndex = 3;
             // 
+            // btnTrash
+            // 
+            this.btnTrash.Animated = true;
+            this.btnTrash.BackColor = System.Drawing.Color.Transparent;
+            this.btnTrash.BorderRadius = 4;
+            this.btnTrash.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTrash.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTrash.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTrash.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTrash.FillColor = System.Drawing.Color.Transparent;
+            this.btnTrash.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnTrash.ForeColor = System.Drawing.Color.White;
+            this.btnTrash.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.btnTrash.Image = global::PassWraith.Properties.Resources.icons8_Bin_Windows_48px;
+            this.btnTrash.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTrash.Location = new System.Drawing.Point(15, 187);
+            this.btnTrash.Name = "btnTrash";
+            this.btnTrash.Size = new System.Drawing.Size(225, 35);
+            this.btnTrash.TabIndex = 2;
+            this.btnTrash.Tag = "DEL";
+            this.btnTrash.Text = "Trash";
+            this.btnTrash.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnFavourites
+            // 
+            this.btnFavourites.Animated = true;
+            this.btnFavourites.BackColor = System.Drawing.Color.Transparent;
+            this.btnFavourites.BorderRadius = 4;
+            this.btnFavourites.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFavourites.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFavourites.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFavourites.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFavourites.FillColor = System.Drawing.Color.Transparent;
+            this.btnFavourites.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnFavourites.ForeColor = System.Drawing.Color.White;
+            this.btnFavourites.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.btnFavourites.Image = global::PassWraith.Properties.Resources.icons8_star_480px;
+            this.btnFavourites.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFavourites.Location = new System.Drawing.Point(14, 146);
+            this.btnFavourites.Name = "btnFavourites";
+            this.btnFavourites.Size = new System.Drawing.Size(225, 35);
+            this.btnFavourites.TabIndex = 1;
+            this.btnFavourites.Tag = "FAV";
+            this.btnFavourites.Text = "Favourites";
+            this.btnFavourites.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // allItemsBtn
+            // 
+            this.allItemsBtn.Animated = true;
+            this.allItemsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.allItemsBtn.BorderRadius = 4;
+            this.allItemsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.allItemsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.allItemsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.allItemsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.allItemsBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.allItemsBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.allItemsBtn.ForeColor = System.Drawing.Color.White;
+            this.allItemsBtn.Image = global::PassWraith.Properties.Resources.icons8_Security_Shield_Green_512px;
+            this.allItemsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.allItemsBtn.Location = new System.Drawing.Point(14, 64);
+            this.allItemsBtn.Name = "allItemsBtn";
+            this.allItemsBtn.Size = new System.Drawing.Size(225, 35);
+            this.allItemsBtn.TabIndex = 0;
+            this.allItemsBtn.Tag = "ALL";
+            this.allItemsBtn.Text = "All Items";
+            this.allItemsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // midPanel
             // 
             this.midPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -144,6 +235,52 @@ namespace PassWraith
             this.midPanel.Name = "midPanel";
             this.midPanel.Size = new System.Drawing.Size(375, 625);
             this.midPanel.TabIndex = 1;
+            // 
+            // addBtn
+            // 
+            this.addBtn.BorderRadius = 4;
+            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
+            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addBtn.ForeColor = System.Drawing.Color.White;
+            this.addBtn.Image = global::PassWraith.Properties.Resources.icons8_plus_math_30px;
+            this.addBtn.ImageSize = new System.Drawing.Size(18, 18);
+            this.addBtn.Location = new System.Drawing.Point(324, 22);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(33, 32);
+            this.addBtn.TabIndex = 2;
+            this.addBtn.Tag = "AddButton";
+            // 
+            // searchBox
+            // 
+            this.searchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.searchBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.searchBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchBox.BorderRadius = 4;
+            this.searchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchBox.DefaultText = "";
+            this.searchBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.searchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.searchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchBox.IconLeft = global::PassWraith.Properties.Resources.icons8_search_24px;
+            this.searchBox.Location = new System.Drawing.Point(15, 22);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.PasswordChar = '\0';
+            this.searchBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.searchBox.PlaceholderText = "Search Vault";
+            this.searchBox.SelectedText = "";
+            this.searchBox.Size = new System.Drawing.Size(292, 32);
+            this.searchBox.TabIndex = 1;
+            this.searchBox.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // flpMain
             // 
@@ -197,240 +334,6 @@ namespace PassWraith
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.Size = new System.Drawing.Size(512, 625);
             this.rightPanel.TabIndex = 2;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.Controls.Add(this.txtNotes);
-            this.guna2Panel1.Controls.Add(this.lblNotes);
-            this.guna2Panel1.Location = new System.Drawing.Point(45, 430);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(422, 184);
-            this.guna2Panel1.TabIndex = 5;
-            // 
-            // txtNotes
-            // 
-            this.txtNotes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNotes.DefaultText = resources.GetString("txtNotes.DefaultText");
-            this.txtNotes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNotes.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNotes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtNotes.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtNotes.FocusedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtNotes.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotes.ForeColor = System.Drawing.Color.White;
-            this.txtNotes.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtNotes.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtNotes.Location = new System.Drawing.Point(0, 22);
-            this.txtNotes.Multiline = true;
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.PasswordChar = '\0';
-            this.txtNotes.PlaceholderText = "";
-            this.txtNotes.ReadOnly = true;
-            this.txtNotes.SelectedText = "";
-            this.txtNotes.Size = new System.Drawing.Size(422, 162);
-            this.txtNotes.TabIndex = 5;
-            this.txtNotes.TextOffset = new System.Drawing.Point(-9, -8);
-            // 
-            // lblNotes
-            // 
-            this.lblNotes.AutoSize = false;
-            this.lblNotes.BackColor = System.Drawing.Color.Transparent;
-            this.lblNotes.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.lblNotes.Location = new System.Drawing.Point(2, 2);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(252, 16);
-            this.lblNotes.TabIndex = 4;
-            this.lblNotes.Text = "Notes";
-            // 
-            // Separator2
-            // 
-            this.Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.Separator2.Location = new System.Drawing.Point(45, 401);
-            this.Separator2.Name = "Separator2";
-            this.Separator2.Size = new System.Drawing.Size(422, 10);
-            this.Separator2.TabIndex = 4;
-            // 
-            // dispWebsitePanel
-            // 
-            this.dispWebsitePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dispWebsitePanel.BorderRadius = 4;
-            this.dispWebsitePanel.Controls.Add(this.dispBtnWebsiteCopy);
-            this.dispWebsitePanel.Controls.Add(this.dispLblWebsiteName);
-            this.dispWebsitePanel.Controls.Add(this.dispLblWebsiteTitle);
-            this.dispWebsitePanel.Location = new System.Drawing.Point(45, 318);
-            this.dispWebsitePanel.Name = "dispWebsitePanel";
-            this.dispWebsitePanel.Size = new System.Drawing.Size(422, 60);
-            this.dispWebsitePanel.TabIndex = 3;
-            // 
-            // dispLblWebsiteName
-            // 
-            this.dispLblWebsiteName.AutoSize = false;
-            this.dispLblWebsiteName.BackColor = System.Drawing.Color.Transparent;
-            this.dispLblWebsiteName.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dispLblWebsiteName.ForeColor = System.Drawing.Color.White;
-            this.dispLblWebsiteName.Location = new System.Drawing.Point(7, 34);
-            this.dispLblWebsiteName.Name = "dispLblWebsiteName";
-            this.dispLblWebsiteName.Size = new System.Drawing.Size(344, 15);
-            this.dispLblWebsiteName.TabIndex = 4;
-            this.dispLblWebsiteName.Text = "shade.ga";
-            // 
-            // dispLblWebsiteTitle
-            // 
-            this.dispLblWebsiteTitle.AutoSize = false;
-            this.dispLblWebsiteTitle.BackColor = System.Drawing.Color.Transparent;
-            this.dispLblWebsiteTitle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dispLblWebsiteTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.dispLblWebsiteTitle.Location = new System.Drawing.Point(7, 12);
-            this.dispLblWebsiteTitle.Name = "dispLblWebsiteTitle";
-            this.dispLblWebsiteTitle.Size = new System.Drawing.Size(252, 16);
-            this.dispLblWebsiteTitle.TabIndex = 3;
-            this.dispLblWebsiteTitle.Text = "Website";
-            // 
-            // dispPasswordPanel
-            // 
-            this.dispPasswordPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dispPasswordPanel.BorderRadius = 4;
-            this.dispPasswordPanel.Controls.Add(this.dispTxtPassword);
-            this.dispPasswordPanel.Controls.Add(this.dispBtnPasswordView);
-            this.dispPasswordPanel.Controls.Add(this.dispBtnPasswordCopy);
-            this.dispPasswordPanel.Controls.Add(this.dispLblPasswordTitle);
-            this.dispPasswordPanel.Location = new System.Drawing.Point(45, 252);
-            this.dispPasswordPanel.Name = "dispPasswordPanel";
-            this.dispPasswordPanel.Size = new System.Drawing.Size(422, 60);
-            this.dispPasswordPanel.TabIndex = 2;
-            // 
-            // dispTxtPassword
-            // 
-            this.dispTxtPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dispTxtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.dispTxtPassword.DefaultText = "password";
-            this.dispTxtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.dispTxtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.dispTxtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.dispTxtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.dispTxtPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dispTxtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispTxtPassword.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dispTxtPassword.ForeColor = System.Drawing.Color.White;
-            this.dispTxtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dispTxtPassword.Location = new System.Drawing.Point(0, 33);
-            this.dispTxtPassword.Name = "dispTxtPassword";
-            this.dispTxtPassword.PasswordChar = '●';
-            this.dispTxtPassword.PlaceholderText = "";
-            this.dispTxtPassword.SelectedText = "";
-            this.dispTxtPassword.Size = new System.Drawing.Size(343, 16);
-            this.dispTxtPassword.TabIndex = 7;
-            this.dispTxtPassword.UseSystemPasswordChar = true;
-            // 
-            // dispLblPasswordTitle
-            // 
-            this.dispLblPasswordTitle.AutoSize = false;
-            this.dispLblPasswordTitle.BackColor = System.Drawing.Color.Transparent;
-            this.dispLblPasswordTitle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dispLblPasswordTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.dispLblPasswordTitle.Location = new System.Drawing.Point(7, 12);
-            this.dispLblPasswordTitle.Name = "dispLblPasswordTitle";
-            this.dispLblPasswordTitle.Size = new System.Drawing.Size(252, 16);
-            this.dispLblPasswordTitle.TabIndex = 3;
-            this.dispLblPasswordTitle.Text = "Password";
-            // 
-            // dispUsernamePanel
-            // 
-            this.dispUsernamePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dispUsernamePanel.BorderRadius = 4;
-            this.dispUsernamePanel.Controls.Add(this.dispBtnUsernameCopy);
-            this.dispUsernamePanel.Controls.Add(this.dispLblUsername);
-            this.dispUsernamePanel.Controls.Add(this.dispLblUsernameTitle);
-            this.dispUsernamePanel.Location = new System.Drawing.Point(45, 186);
-            this.dispUsernamePanel.Name = "dispUsernamePanel";
-            this.dispUsernamePanel.Size = new System.Drawing.Size(422, 60);
-            this.dispUsernamePanel.TabIndex = 1;
-            // 
-            // dispLblUsername
-            // 
-            this.dispLblUsername.AutoSize = false;
-            this.dispLblUsername.BackColor = System.Drawing.Color.Transparent;
-            this.dispLblUsername.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dispLblUsername.ForeColor = System.Drawing.Color.White;
-            this.dispLblUsername.Location = new System.Drawing.Point(7, 34);
-            this.dispLblUsername.Name = "dispLblUsername";
-            this.dispLblUsername.Size = new System.Drawing.Size(344, 15);
-            this.dispLblUsername.TabIndex = 4;
-            this.dispLblUsername.Text = "shade@shade.ga";
-            // 
-            // dispLblUsernameTitle
-            // 
-            this.dispLblUsernameTitle.AutoSize = false;
-            this.dispLblUsernameTitle.BackColor = System.Drawing.Color.Transparent;
-            this.dispLblUsernameTitle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dispLblUsernameTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.dispLblUsernameTitle.Location = new System.Drawing.Point(7, 12);
-            this.dispLblUsernameTitle.Name = "dispLblUsernameTitle";
-            this.dispLblUsernameTitle.Size = new System.Drawing.Size(252, 16);
-            this.dispLblUsernameTitle.TabIndex = 3;
-            this.dispLblUsernameTitle.Text = "Username";
-            // 
-            // displayPanel
-            // 
-            this.displayPanel.BackColor = System.Drawing.Color.Transparent;
-            this.displayPanel.Controls.Add(this.Seperator1);
-            this.displayPanel.Controls.Add(this.starPicBox);
-            this.displayPanel.Controls.Add(this.lblDisplayUserName);
-            this.displayPanel.Controls.Add(this.lblDisplayWebsiteName);
-            this.displayPanel.Controls.Add(this.displayPicBox);
-            this.displayPanel.Location = new System.Drawing.Point(45, 80);
-            this.displayPanel.Name = "displayPanel";
-            this.displayPanel.Size = new System.Drawing.Size(422, 80);
-            this.displayPanel.TabIndex = 0;
-            // 
-            // Seperator1
-            // 
-            this.Seperator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.Seperator1.Location = new System.Drawing.Point(0, 72);
-            this.Seperator1.Name = "Seperator1";
-            this.Seperator1.Size = new System.Drawing.Size(422, 10);
-            this.Seperator1.TabIndex = 1;
-            // 
-            // lblDisplayUserName
-            // 
-            this.lblDisplayUserName.AutoSize = false;
-            this.lblDisplayUserName.BackColor = System.Drawing.Color.Transparent;
-            this.lblDisplayUserName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplayUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            this.lblDisplayUserName.Location = new System.Drawing.Point(83, 36);
-            this.lblDisplayUserName.Name = "lblDisplayUserName";
-            this.lblDisplayUserName.Size = new System.Drawing.Size(252, 16);
-            this.lblDisplayUserName.TabIndex = 2;
-            this.lblDisplayUserName.Text = "Login";
-            // 
-            // lblDisplayWebsiteName
-            // 
-            this.lblDisplayWebsiteName.AutoSize = false;
-            this.lblDisplayWebsiteName.BackColor = System.Drawing.Color.Transparent;
-            this.lblDisplayWebsiteName.Font = new System.Drawing.Font("Roboto Bk", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplayWebsiteName.ForeColor = System.Drawing.Color.White;
-            this.lblDisplayWebsiteName.Location = new System.Drawing.Point(83, 4);
-            this.lblDisplayWebsiteName.Name = "lblDisplayWebsiteName";
-            this.lblDisplayWebsiteName.Size = new System.Drawing.Size(252, 27);
-            this.lblDisplayWebsiteName.TabIndex = 1;
-            this.lblDisplayWebsiteName.Text = "Adobe";
-            // 
-            // flpMainDrag
-            // 
-            this.flpMainDrag.DockIndicatorTransparencyValue = 0.6D;
-            this.flpMainDrag.TargetControl = this.flpMain;
-            this.flpMainDrag.UseTransparentDrag = true;
-            // 
-            // gunaToolTip
-            // 
-            this.gunaToolTip.AllowLinksHandling = true;
-            this.gunaToolTip.MaximumSize = new System.Drawing.Size(0, 0);
-            this.gunaToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.gunaToolTip.ToolTipTitle = "Expiry Date";
             // 
             // btnRestore
             // 
@@ -527,6 +430,74 @@ namespace PassWraith
             this.editBtn.TabIndex = 7;
             this.editBtn.Text = "Edit";
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.txtNotes);
+            this.guna2Panel1.Controls.Add(this.lblNotes);
+            this.guna2Panel1.Location = new System.Drawing.Point(45, 430);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(422, 184);
+            this.guna2Panel1.TabIndex = 5;
+            // 
+            // txtNotes
+            // 
+            this.txtNotes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNotes.DefaultText = resources.GetString("txtNotes.DefaultText");
+            this.txtNotes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotes.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtNotes.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtNotes.FocusedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtNotes.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNotes.ForeColor = System.Drawing.Color.White;
+            this.txtNotes.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtNotes.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtNotes.Location = new System.Drawing.Point(0, 22);
+            this.txtNotes.Multiline = true;
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.PasswordChar = '\0';
+            this.txtNotes.PlaceholderText = "";
+            this.txtNotes.ReadOnly = true;
+            this.txtNotes.SelectedText = "";
+            this.txtNotes.Size = new System.Drawing.Size(422, 162);
+            this.txtNotes.TabIndex = 5;
+            this.txtNotes.TextOffset = new System.Drawing.Point(-9, -8);
+            // 
+            // lblNotes
+            // 
+            this.lblNotes.AutoSize = false;
+            this.lblNotes.BackColor = System.Drawing.Color.Transparent;
+            this.lblNotes.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
+            this.lblNotes.Location = new System.Drawing.Point(2, 2);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(252, 16);
+            this.lblNotes.TabIndex = 4;
+            this.lblNotes.Text = "Notes";
+            // 
+            // Separator2
+            // 
+            this.Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.Separator2.Location = new System.Drawing.Point(45, 401);
+            this.Separator2.Name = "Separator2";
+            this.Separator2.Size = new System.Drawing.Size(422, 10);
+            this.Separator2.TabIndex = 4;
+            // 
+            // dispWebsitePanel
+            // 
+            this.dispWebsitePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dispWebsitePanel.BorderRadius = 4;
+            this.dispWebsitePanel.Controls.Add(this.dispBtnWebsiteCopy);
+            this.dispWebsitePanel.Controls.Add(this.dispLblWebsiteName);
+            this.dispWebsitePanel.Controls.Add(this.dispLblWebsiteTitle);
+            this.dispWebsitePanel.Location = new System.Drawing.Point(45, 318);
+            this.dispWebsitePanel.Name = "dispWebsitePanel";
+            this.dispWebsitePanel.Size = new System.Drawing.Size(422, 60);
+            this.dispWebsitePanel.TabIndex = 3;
+            // 
             // dispBtnWebsiteCopy
             // 
             this.dispBtnWebsiteCopy.BackColor = System.Drawing.Color.Transparent;
@@ -547,6 +518,66 @@ namespace PassWraith
             this.dispBtnWebsiteCopy.TabIndex = 5;
             this.dispBtnWebsiteCopy.Tag = "Copy";
             this.dispBtnWebsiteCopy.Visible = false;
+            // 
+            // dispLblWebsiteName
+            // 
+            this.dispLblWebsiteName.AutoSize = false;
+            this.dispLblWebsiteName.BackColor = System.Drawing.Color.Transparent;
+            this.dispLblWebsiteName.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dispLblWebsiteName.ForeColor = System.Drawing.Color.White;
+            this.dispLblWebsiteName.Location = new System.Drawing.Point(7, 34);
+            this.dispLblWebsiteName.Name = "dispLblWebsiteName";
+            this.dispLblWebsiteName.Size = new System.Drawing.Size(344, 15);
+            this.dispLblWebsiteName.TabIndex = 4;
+            this.dispLblWebsiteName.Text = "shade.ga";
+            // 
+            // dispLblWebsiteTitle
+            // 
+            this.dispLblWebsiteTitle.AutoSize = false;
+            this.dispLblWebsiteTitle.BackColor = System.Drawing.Color.Transparent;
+            this.dispLblWebsiteTitle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dispLblWebsiteTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
+            this.dispLblWebsiteTitle.Location = new System.Drawing.Point(7, 12);
+            this.dispLblWebsiteTitle.Name = "dispLblWebsiteTitle";
+            this.dispLblWebsiteTitle.Size = new System.Drawing.Size(252, 16);
+            this.dispLblWebsiteTitle.TabIndex = 3;
+            this.dispLblWebsiteTitle.Text = "Website";
+            // 
+            // dispPasswordPanel
+            // 
+            this.dispPasswordPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dispPasswordPanel.BorderRadius = 4;
+            this.dispPasswordPanel.Controls.Add(this.dispTxtPassword);
+            this.dispPasswordPanel.Controls.Add(this.dispBtnPasswordView);
+            this.dispPasswordPanel.Controls.Add(this.dispBtnPasswordCopy);
+            this.dispPasswordPanel.Controls.Add(this.dispLblPasswordTitle);
+            this.dispPasswordPanel.Location = new System.Drawing.Point(45, 252);
+            this.dispPasswordPanel.Name = "dispPasswordPanel";
+            this.dispPasswordPanel.Size = new System.Drawing.Size(422, 60);
+            this.dispPasswordPanel.TabIndex = 2;
+            // 
+            // dispTxtPassword
+            // 
+            this.dispTxtPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dispTxtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dispTxtPassword.DefaultText = "password";
+            this.dispTxtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.dispTxtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.dispTxtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.dispTxtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.dispTxtPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dispTxtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispTxtPassword.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dispTxtPassword.ForeColor = System.Drawing.Color.White;
+            this.dispTxtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dispTxtPassword.Location = new System.Drawing.Point(0, 33);
+            this.dispTxtPassword.Name = "dispTxtPassword";
+            this.dispTxtPassword.PasswordChar = '●';
+            this.dispTxtPassword.PlaceholderText = "";
+            this.dispTxtPassword.SelectedText = "";
+            this.dispTxtPassword.Size = new System.Drawing.Size(343, 16);
+            this.dispTxtPassword.TabIndex = 7;
+            this.dispTxtPassword.UseSystemPasswordChar = true;
             // 
             // dispBtnPasswordView
             // 
@@ -590,6 +621,30 @@ namespace PassWraith
             this.dispBtnPasswordCopy.Tag = "Copy";
             this.dispBtnPasswordCopy.Visible = false;
             // 
+            // dispLblPasswordTitle
+            // 
+            this.dispLblPasswordTitle.AutoSize = false;
+            this.dispLblPasswordTitle.BackColor = System.Drawing.Color.Transparent;
+            this.dispLblPasswordTitle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dispLblPasswordTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
+            this.dispLblPasswordTitle.Location = new System.Drawing.Point(7, 12);
+            this.dispLblPasswordTitle.Name = "dispLblPasswordTitle";
+            this.dispLblPasswordTitle.Size = new System.Drawing.Size(252, 16);
+            this.dispLblPasswordTitle.TabIndex = 3;
+            this.dispLblPasswordTitle.Text = "Password";
+            // 
+            // dispUsernamePanel
+            // 
+            this.dispUsernamePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dispUsernamePanel.BorderRadius = 4;
+            this.dispUsernamePanel.Controls.Add(this.dispBtnUsernameCopy);
+            this.dispUsernamePanel.Controls.Add(this.dispLblUsername);
+            this.dispUsernamePanel.Controls.Add(this.dispLblUsernameTitle);
+            this.dispUsernamePanel.Location = new System.Drawing.Point(45, 186);
+            this.dispUsernamePanel.Name = "dispUsernamePanel";
+            this.dispUsernamePanel.Size = new System.Drawing.Size(422, 60);
+            this.dispUsernamePanel.TabIndex = 1;
+            // 
             // dispBtnUsernameCopy
             // 
             this.dispBtnUsernameCopy.BackColor = System.Drawing.Color.Transparent;
@@ -611,6 +666,51 @@ namespace PassWraith
             this.dispBtnUsernameCopy.Tag = "Copy";
             this.dispBtnUsernameCopy.Visible = false;
             // 
+            // dispLblUsername
+            // 
+            this.dispLblUsername.AutoSize = false;
+            this.dispLblUsername.BackColor = System.Drawing.Color.Transparent;
+            this.dispLblUsername.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dispLblUsername.ForeColor = System.Drawing.Color.White;
+            this.dispLblUsername.Location = new System.Drawing.Point(7, 34);
+            this.dispLblUsername.Name = "dispLblUsername";
+            this.dispLblUsername.Size = new System.Drawing.Size(344, 15);
+            this.dispLblUsername.TabIndex = 4;
+            this.dispLblUsername.Text = "shade@shade.ga";
+            // 
+            // dispLblUsernameTitle
+            // 
+            this.dispLblUsernameTitle.AutoSize = false;
+            this.dispLblUsernameTitle.BackColor = System.Drawing.Color.Transparent;
+            this.dispLblUsernameTitle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dispLblUsernameTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
+            this.dispLblUsernameTitle.Location = new System.Drawing.Point(7, 12);
+            this.dispLblUsernameTitle.Name = "dispLblUsernameTitle";
+            this.dispLblUsernameTitle.Size = new System.Drawing.Size(252, 16);
+            this.dispLblUsernameTitle.TabIndex = 3;
+            this.dispLblUsernameTitle.Text = "Username";
+            // 
+            // displayPanel
+            // 
+            this.displayPanel.BackColor = System.Drawing.Color.Transparent;
+            this.displayPanel.Controls.Add(this.Seperator1);
+            this.displayPanel.Controls.Add(this.starPicBox);
+            this.displayPanel.Controls.Add(this.lblDisplayUserName);
+            this.displayPanel.Controls.Add(this.lblDisplayWebsiteName);
+            this.displayPanel.Controls.Add(this.displayPicBox);
+            this.displayPanel.Location = new System.Drawing.Point(45, 80);
+            this.displayPanel.Name = "displayPanel";
+            this.displayPanel.Size = new System.Drawing.Size(422, 80);
+            this.displayPanel.TabIndex = 0;
+            // 
+            // Seperator1
+            // 
+            this.Seperator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.Seperator1.Location = new System.Drawing.Point(0, 72);
+            this.Seperator1.Name = "Seperator1";
+            this.Seperator1.Size = new System.Drawing.Size(422, 10);
+            this.Seperator1.TabIndex = 1;
+            // 
             // starPicBox
             // 
             this.starPicBox.FillColor = System.Drawing.Color.Transparent;
@@ -622,6 +722,30 @@ namespace PassWraith
             this.starPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.starPicBox.TabIndex = 3;
             this.starPicBox.TabStop = false;
+            // 
+            // lblDisplayUserName
+            // 
+            this.lblDisplayUserName.AutoSize = false;
+            this.lblDisplayUserName.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisplayUserName.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisplayUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
+            this.lblDisplayUserName.Location = new System.Drawing.Point(83, 36);
+            this.lblDisplayUserName.Name = "lblDisplayUserName";
+            this.lblDisplayUserName.Size = new System.Drawing.Size(252, 16);
+            this.lblDisplayUserName.TabIndex = 2;
+            this.lblDisplayUserName.Text = "Login";
+            // 
+            // lblDisplayWebsiteName
+            // 
+            this.lblDisplayWebsiteName.AutoSize = false;
+            this.lblDisplayWebsiteName.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisplayWebsiteName.Font = new System.Drawing.Font("Roboto Bk", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisplayWebsiteName.ForeColor = System.Drawing.Color.White;
+            this.lblDisplayWebsiteName.Location = new System.Drawing.Point(83, 4);
+            this.lblDisplayWebsiteName.Name = "lblDisplayWebsiteName";
+            this.lblDisplayWebsiteName.Size = new System.Drawing.Size(252, 27);
+            this.lblDisplayWebsiteName.TabIndex = 1;
+            this.lblDisplayWebsiteName.Text = "Adobe";
             // 
             // displayPicBox
             // 
@@ -636,142 +760,18 @@ namespace PassWraith
             this.displayPicBox.TabIndex = 0;
             this.displayPicBox.TabStop = false;
             // 
-            // addBtn
+            // flpMainDrag
             // 
-            this.addBtn.BorderRadius = 4;
-            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Image = global::PassWraith.Properties.Resources.icons8_plus_math_30px;
-            this.addBtn.ImageSize = new System.Drawing.Size(18, 18);
-            this.addBtn.Location = new System.Drawing.Point(324, 22);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(33, 32);
-            this.addBtn.TabIndex = 2;
-            this.addBtn.Tag = "AddButton";
+            this.flpMainDrag.DockIndicatorTransparencyValue = 0.6D;
+            this.flpMainDrag.TargetControl = this.flpMain;
+            this.flpMainDrag.UseTransparentDrag = true;
             // 
-            // searchBox
+            // gunaToolTip
             // 
-            this.searchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.searchBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.searchBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchBox.BorderRadius = 4;
-            this.searchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.searchBox.DefaultText = "";
-            this.searchBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.searchBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.searchBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.searchBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.searchBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.searchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.searchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchBox.IconLeft = global::PassWraith.Properties.Resources.icons8_search_24px;
-            this.searchBox.Location = new System.Drawing.Point(15, 22);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.PasswordChar = '\0';
-            this.searchBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.searchBox.PlaceholderText = "Search Vault";
-            this.searchBox.SelectedText = "";
-            this.searchBox.Size = new System.Drawing.Size(292, 32);
-            this.searchBox.TabIndex = 1;
-            this.searchBox.TextOffset = new System.Drawing.Point(10, 0);
-            // 
-            // btnTrash
-            // 
-            this.btnTrash.Animated = true;
-            this.btnTrash.BackColor = System.Drawing.Color.Transparent;
-            this.btnTrash.BorderRadius = 4;
-            this.btnTrash.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTrash.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTrash.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTrash.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTrash.FillColor = System.Drawing.Color.Transparent;
-            this.btnTrash.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnTrash.ForeColor = System.Drawing.Color.White;
-            this.btnTrash.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.btnTrash.Image = global::PassWraith.Properties.Resources.icons8_Bin_Windows_48px;
-            this.btnTrash.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTrash.Location = new System.Drawing.Point(15, 187);
-            this.btnTrash.Name = "btnTrash";
-            this.btnTrash.Size = new System.Drawing.Size(225, 35);
-            this.btnTrash.TabIndex = 2;
-            this.btnTrash.Tag = "DEL";
-            this.btnTrash.Text = "Trash";
-            this.btnTrash.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // btnFavourites
-            // 
-            this.btnFavourites.Animated = true;
-            this.btnFavourites.BackColor = System.Drawing.Color.Transparent;
-            this.btnFavourites.BorderRadius = 4;
-            this.btnFavourites.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFavourites.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFavourites.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFavourites.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFavourites.FillColor = System.Drawing.Color.Transparent;
-            this.btnFavourites.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnFavourites.ForeColor = System.Drawing.Color.White;
-            this.btnFavourites.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.btnFavourites.Image = global::PassWraith.Properties.Resources.icons8_star_480px;
-            this.btnFavourites.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnFavourites.Location = new System.Drawing.Point(14, 146);
-            this.btnFavourites.Name = "btnFavourites";
-            this.btnFavourites.Size = new System.Drawing.Size(225, 35);
-            this.btnFavourites.TabIndex = 1;
-            this.btnFavourites.Tag = "FAV";
-            this.btnFavourites.Text = "Favourites";
-            this.btnFavourites.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // allItemsBtn
-            // 
-            this.allItemsBtn.Animated = true;
-            this.allItemsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.allItemsBtn.BorderRadius = 4;
-            this.allItemsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.allItemsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.allItemsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.allItemsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.allItemsBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.allItemsBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.allItemsBtn.ForeColor = System.Drawing.Color.White;
-            this.allItemsBtn.Image = global::PassWraith.Properties.Resources.icons8_Security_Shield_Green_512px;
-            this.allItemsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.allItemsBtn.Location = new System.Drawing.Point(14, 64);
-            this.allItemsBtn.Name = "allItemsBtn";
-            this.allItemsBtn.Size = new System.Drawing.Size(225, 35);
-            this.allItemsBtn.TabIndex = 0;
-            this.allItemsBtn.Tag = "ALL";
-            this.allItemsBtn.Text = "All Items";
-            this.allItemsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // btnCard
-            // 
-            this.btnCard.Animated = true;
-            this.btnCard.BackColor = System.Drawing.Color.Transparent;
-            this.btnCard.BorderRadius = 4;
-            this.btnCard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCard.FillColor = System.Drawing.Color.Transparent;
-            this.btnCard.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnCard.ForeColor = System.Drawing.Color.White;
-            this.btnCard.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(93)))), ((int)(((byte)(220)))));
-            this.btnCard.Image = global::PassWraith.Properties.Resources.icons8_Magnetic_Card_40px;
-            this.btnCard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCard.Location = new System.Drawing.Point(14, 105);
-            this.btnCard.Name = "btnCard";
-            this.btnCard.Size = new System.Drawing.Size(225, 35);
-            this.btnCard.TabIndex = 5;
-            this.btnCard.Tag = "CARD";
-            this.btnCard.Text = "Cards";
-            this.btnCard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gunaToolTip.AllowLinksHandling = true;
+            this.gunaToolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.gunaToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.gunaToolTip.ToolTipTitle = "Expiry Date";
             // 
             // PassWraith
             // 
