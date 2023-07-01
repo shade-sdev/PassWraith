@@ -16,6 +16,7 @@ namespace PassWraith.Data
         List<PasswordEntity> GetPasswordEntities(int pageNumber, int pageSize);
         void SetFavourite(int id);
         void Delete(int id);
+        void DeleteById(int id);
         void Restore(int id);
         List<PasswordEntity> Filter(FilterType filterType, string search, int pageNumber, int pageSize);
         List<PasswordEntity> GetAll();

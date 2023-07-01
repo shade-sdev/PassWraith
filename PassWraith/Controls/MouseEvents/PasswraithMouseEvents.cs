@@ -116,11 +116,18 @@ namespace PassWraith.Controls.MouseEvents
 
         public async void SearchBox_KeyDownAsync(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                await ClearFlpMain();
-                await Load(filterType);
+                if (e.KeyCode == Keys.Enter)
+                {
+                    await ClearFlpMain();
+                    await Load(filterType);
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
+
         }
 
         //public void SearchBox_TextChange(object sender, EventArgs e)
@@ -193,20 +200,26 @@ namespace PassWraith.Controls.MouseEvents
 
         public async Task Load(FilterType filter)
         {
-            await Task.Delay(100);
-            var passwords = _context.Filter(filter, dependencies.SearchBox.Text.Trim(), CURRENT_PAGE, PAGE_SIZE);
-            dependencies.SearchBox.BeginInvoke(new MethodInvoker(() =>
+            try
             {
-                dependencies.SearchBox.AutoCompleteCustomSource.Clear();
-                passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
-            }));
-
-
-            await LoadPasswordHeadsAsync(passwords)
-                .ContinueWith(async task =>
+                await Task.Delay(100);
+                var passwords = _context.Filter(filter, dependencies.SearchBox.Text.Trim(), CURRENT_PAGE, PAGE_SIZE);
+                dependencies.SearchBox.BeginInvoke(new MethodInvoker(() =>
                 {
-                    await ClickFirstControl();
-                });
+                    dependencies.SearchBox.AutoCompleteCustomSource.Clear();
+                    passwords.SelectMany(pass => new[] { pass.UserName, pass.WebSiteName }).ToList().ForEach(pass => dependencies.SearchBox.AutoCompleteCustomSource.Add(pass));
+                }));
+
+
+                await LoadPasswordHeadsAsync(passwords)
+                    .ContinueWith(async task =>
+                    {
+                        await ClickFirstControl();
+                    });
+            } catch(Exception e) {
+            MessageBox.Show(e.ToString());
+            }
+
 
         }
 
@@ -483,22 +496,21 @@ namespace PassWraith.Controls.MouseEvents
 
         private async Task ClickFirstControl()
         {
-            await Task.Run(() =>
+            await Task.Run(async () =>
             {
+                await Task.Delay(500);
                 PasswordHead control = dependencies.FlpMain.Controls.OfType<PasswordHead>().FirstOrDefault();
                 dependencies.FlpMain.BeginInvoke((MethodInvoker)delegate
                 {
-                    while (control == null || control.IsDisposed)
+                    if (control != null)
                     {
                         control = dependencies.FlpMain.Controls.OfType<PasswordHead>().FirstOrDefault();
-
-                    }
-                    Type controlType = this.GetType();
-                    MethodInfo buttonClickMethod = controlType.GetMethod("User_click", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
-
-                    if (buttonClickMethod != null)
-                    {
-                        buttonClickMethod.Invoke(this, new object[] { control, EventArgs.Empty });
+                        Type controlType = this.GetType();
+                        MethodInfo buttonClickMethod = controlType.GetMethod("User_click", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+                        if (buttonClickMethod != null)
+                        {
+                            buttonClickMethod.Invoke(this, new object[] { control, EventArgs.Empty });
+                        }
                     }
                 });
             });

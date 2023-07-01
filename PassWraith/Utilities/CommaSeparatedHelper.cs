@@ -97,7 +97,7 @@ public class CommaSeparatedHelper
                             WebSiteIconUrl = record[5],
                             CardNumber = record[6],
                             PIN = record[7],
-                            CardExpiryDate = string.IsNullOrEmpty(record[8]) ? null : (DateTime?)DateTime.Parse(record[8]),
+                            CardExpiryDate = BuildDate(record[8]),
                             Notes = record[9],
                             IsFavourite = false,
                             IsDeleted = false,
@@ -174,6 +174,21 @@ public class CommaSeparatedHelper
         }
 
         return websiteUrl;
+    }
+
+    public static DateTime? BuildDate(string date)
+    {
+        if ( string.IsNullOrEmpty(date))
+        {
+            return null;
+        }
+        try
+        {
+            return (DateTime?)DateTime.Parse(date);
+        } catch (Exception ex)
+        {
+            return null;
+        }
     }
 
 }

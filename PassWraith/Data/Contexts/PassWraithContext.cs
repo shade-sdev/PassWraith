@@ -144,6 +144,13 @@ namespace PassWraith.Data
             SaveChanges();
         }
 
+        public void DeleteById(int id)
+        {
+            var existingEntity = passwords.Find(id);
+            passwords.Remove(existingEntity);
+            SaveChanges();
+        }
+
         public UserPasswordEntity Get()
         {
             return UserPasswords?.FirstOrDefault();
@@ -164,5 +171,6 @@ namespace PassWraith.Data
 
             return 0;
         }
+
     }
 }
