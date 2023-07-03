@@ -20,9 +20,9 @@ namespace PassWraith.Data
         private static string GetConnectionString()
         {
             var appDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            var mdfFilePath = Path.Combine(appDirectory, "Passwraith.mdf");
+            var mdfFilePath = Path.Combine(appDirectory, "Passwraith.db");
 
-            var connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={mdfFilePath};Integrated Security=False;MultipleActiveResultSets=True";
+            var connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={mdfFilePath};Persist Security Info = True";
             return connectionString;
         }
 

@@ -38,7 +38,7 @@ public class CommaSeparatedHelper
     public static void ExportExcel(IPassWraithContext _context)
     {
         List<PasswordEntity> passwordEntities = _context.passwords.ToList();
-        using (var writer = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/PassCrypt" + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".csv"))
+        using (var writer = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/PassWraith" + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".csv"))
         using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
         {
             csv.WriteHeader<PasswordEntity>();
