@@ -32,12 +32,12 @@
             this.gblf = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.btnClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.ImportBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.checkBox = new Guna.UI2.WinForms.Guna2CheckBox();
             this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.uploadPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.uploadPic = new Guna.UI2.WinForms.Guna2PictureBox();
             this.mainPanelDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.checkBox = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.ImportBtn = new Guna.UI2.WinForms.Guna2Button();
             this.mainPanel.SuspendLayout();
             this.uploadPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uploadPic)).BeginInit();
@@ -75,6 +75,50 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(261, 332);
             this.mainPanel.TabIndex = 1;
+            // 
+            // ImportBtn
+            // 
+            this.ImportBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportBtn.BorderRadius = 2;
+            this.ImportBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ImportBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ImportBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ImportBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ImportBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ImportBtn.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportBtn.ForeColor = System.Drawing.Color.White;
+            this.ImportBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.ImportBtn.Image = global::PassWraith.Properties.Resources.icons8_import_30px;
+            this.ImportBtn.ImageSize = new System.Drawing.Size(16, 16);
+            this.ImportBtn.Location = new System.Drawing.Point(31, 296);
+            this.ImportBtn.Name = "ImportBtn";
+            this.ImportBtn.Size = new System.Drawing.Size(200, 24);
+            this.ImportBtn.TabIndex = 9;
+            this.ImportBtn.Text = "Import";
+            this.ImportBtn.Click += new System.EventHandler(this.ImportBtn_Click);
+            // 
+            // checkBox
+            // 
+            this.checkBox.AutoSize = true;
+            this.checkBox.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox.Checked = true;
+            this.checkBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.checkBox.CheckedState.BorderRadius = 0;
+            this.checkBox.CheckedState.BorderThickness = 0;
+            this.checkBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox.ForeColor = System.Drawing.Color.White;
+            this.checkBox.Location = new System.Drawing.Point(31, 257);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(65, 17);
+            this.checkBox.TabIndex = 3;
+            this.checkBox.Text = "Chrome";
+            this.checkBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBox.UncheckedState.BorderRadius = 0;
+            this.checkBox.UncheckedState.BorderThickness = 0;
+            this.checkBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkBox.UseVisualStyleBackColor = false;
             // 
             // lblTitle
             // 
@@ -119,52 +163,9 @@
             this.mainPanelDrag.TargetControl = this.mainPanel;
             this.mainPanelDrag.UseTransparentDrag = true;
             // 
-            // checkBox
-            // 
-            this.checkBox.AutoSize = true;
-            this.checkBox.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox.Checked = true;
-            this.checkBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.checkBox.CheckedState.BorderRadius = 0;
-            this.checkBox.CheckedState.BorderThickness = 0;
-            this.checkBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox.ForeColor = System.Drawing.Color.White;
-            this.checkBox.Location = new System.Drawing.Point(31, 257);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(65, 17);
-            this.checkBox.TabIndex = 3;
-            this.checkBox.Text = "Chrome";
-            this.checkBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.checkBox.UncheckedState.BorderRadius = 0;
-            this.checkBox.UncheckedState.BorderThickness = 0;
-            this.checkBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.checkBox.UseVisualStyleBackColor = false;
-            // 
-            // ImportBtn
-            // 
-            this.ImportBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ImportBtn.BorderRadius = 2;
-            this.ImportBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ImportBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ImportBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ImportBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ImportBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ImportBtn.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportBtn.ForeColor = System.Drawing.Color.White;
-            this.ImportBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.ImportBtn.Image = global::PassWraith.Properties.Resources.icons8_import_30px;
-            this.ImportBtn.ImageSize = new System.Drawing.Size(16, 16);
-            this.ImportBtn.Location = new System.Drawing.Point(31, 296);
-            this.ImportBtn.Name = "ImportBtn";
-            this.ImportBtn.Size = new System.Drawing.Size(200, 24);
-            this.ImportBtn.TabIndex = 9;
-            this.ImportBtn.Text = "Import";
-            this.ImportBtn.Click += new System.EventHandler(this.ImportBtn_Click);
-            // 
             // Import
             // 
+            this.AcceptButton = this.ImportBtn;
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
