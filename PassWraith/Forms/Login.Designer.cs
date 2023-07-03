@@ -79,6 +79,7 @@
             this.lblFormTitle.Name = "lblFormTitle";
             this.lblFormTitle.Size = new System.Drawing.Size(53, 21);
             this.lblFormTitle.TabIndex = 14;
+            this.lblFormTitle.TabStop = false;
             this.lblFormTitle.Text = "Sign In";
             // 
             // btnLogin
@@ -108,6 +109,7 @@
             this.lblScretKey.Name = "lblScretKey";
             this.lblScretKey.Size = new System.Drawing.Size(59, 16);
             this.lblScretKey.TabIndex = 12;
+            this.lblScretKey.TabStop = false;
             this.lblScretKey.Text = "Secret Key";
             this.mainToolTip.SetToolTip(this.lblScretKey, "The secret key is not stored anywhere, use the same secret key always as this wil" +
         "l be used in the process of encryption of password.\r\n");
@@ -150,6 +152,7 @@
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 16);
             this.lblPassword.TabIndex = 10;
+            this.lblPassword.TabStop = false;
             this.lblPassword.Text = "Password";
             // 
             // txtPassword

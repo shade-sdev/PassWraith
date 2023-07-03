@@ -187,6 +187,7 @@
             // 
             // txtNotes
             // 
+            this.txtNotes.AcceptsReturn = true;
             this.txtNotes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNotes.BorderRadius = 2;
             this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;

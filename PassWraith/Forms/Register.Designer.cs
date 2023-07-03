@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
-            this.gblf = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.mainDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.lblFormTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnRegister = new Guna.UI2.WinForms.Guna2Button();
@@ -40,17 +40,17 @@
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.sidePicBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.closeBtn = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.mainDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.sideDrag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.gblf = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sidePicBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // gblf
+            // mainDrag
             // 
-            this.gblf.ContainerControl = this;
-            this.gblf.DockIndicatorTransparencyValue = 0.6D;
-            this.gblf.TransparentWhileDrag = true;
+            this.mainDrag.DockIndicatorTransparencyValue = 0.6D;
+            this.mainDrag.TargetControl = this.mainPanel;
+            this.mainDrag.UseTransparentDrag = true;
             // 
             // mainPanel
             // 
@@ -79,6 +79,7 @@
             this.lblFormTitle.Name = "lblFormTitle";
             this.lblFormTitle.Size = new System.Drawing.Size(59, 21);
             this.lblFormTitle.TabIndex = 8;
+            this.lblFormTitle.TabStop = false;
             this.lblFormTitle.Text = "Sign Up";
             // 
             // btnRegister
@@ -107,6 +108,7 @@
             this.lblConfirmPassword.Name = "lblConfirmPassword";
             this.lblConfirmPassword.Size = new System.Drawing.Size(102, 16);
             this.lblConfirmPassword.TabIndex = 6;
+            this.lblConfirmPassword.TabStop = false;
             this.lblConfirmPassword.Text = "Confirm Password";
             // 
             // txtConfirmPassword
@@ -145,6 +147,7 @@
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 16);
             this.lblPassword.TabIndex = 4;
+            this.lblPassword.TabStop = false;
             this.lblPassword.Text = "Password";
             // 
             // txtPassword
@@ -194,17 +197,17 @@
             this.closeBtn.Size = new System.Drawing.Size(45, 29);
             this.closeBtn.TabIndex = 0;
             // 
-            // mainDrag
-            // 
-            this.mainDrag.DockIndicatorTransparencyValue = 0.6D;
-            this.mainDrag.TargetControl = this.mainPanel;
-            this.mainDrag.UseTransparentDrag = true;
-            // 
             // sideDrag
             // 
             this.sideDrag.DockIndicatorTransparencyValue = 0.6D;
             this.sideDrag.TargetControl = this.sidePicBox;
             this.sideDrag.UseTransparentDrag = true;
+            // 
+            // gblf
+            // 
+            this.gblf.ContainerControl = this;
+            this.gblf.DockIndicatorTransparencyValue = 0.6D;
+            this.gblf.TransparentWhileDrag = true;
             // 
             // Register
             // 
