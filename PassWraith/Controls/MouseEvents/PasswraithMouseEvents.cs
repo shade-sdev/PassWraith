@@ -20,11 +20,11 @@ namespace PassWraith.Controls.MouseEvents
     public class PasswraithMouseEvents
     {
         private readonly IPassWraithContext _context;
+        private readonly int PAGE_SIZE = 8;
 
         private PasswordEntity selectedPasswordEntity;
         private PasswraithDependencies dependencies;
 
-        public int PAGE_SIZE = 8;
         public int CURRENT_PAGE = 1;
         private bool IS_DATA_LOADING = false;
         public FilterType filterType = FilterType.ALL;
@@ -331,7 +331,7 @@ namespace PassWraith.Controls.MouseEvents
 
             });
             await ClearFlpMain();
-            PAGE_SIZE = 1;
+            CURRENT_PAGE = 1;
             await Load(filterType);
         }
 
@@ -344,7 +344,7 @@ namespace PassWraith.Controls.MouseEvents
 
             });
             await ClearFlpMain();
-            PAGE_SIZE = 1;
+            CURRENT_PAGE = 1;
             await Load(filterType);
         }
 
