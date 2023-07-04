@@ -8,9 +8,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/shade-sdev/PassWraith">
-    <img src="https://raw.githubusercontent.com/shade-sdev/PassWraith/master/PassWraith/Resources/00016.png" alt="Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/shade-sdev/PassWraith/master/PassWraith/Resources/00016.png" alt="Logo" style="border-radius: 50%;" width="100" height="100">
   </a>
 </div>
+
 
 <div>
     <p align="center">
