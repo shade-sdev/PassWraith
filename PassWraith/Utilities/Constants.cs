@@ -1,4 +1,5 @@
 ﻿using System.Security;
+using System.Windows.Forms;
 
 namespace PassWraith.Utilities
 {
@@ -6,5 +7,6 @@ namespace PassWraith.Utilities
     {
         public static SecureString secretKey;
         public static string userPassword;
+        public static NotifyIcon notifyIcon = new NotifyIcon();
     }
 }

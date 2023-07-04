@@ -44,6 +44,22 @@ public class CommaSeparatedHelper
             csv.WriteHeader<PasswordEntity>();
             csv.NextRecord();
             csv.WriteRecords(passwordEntities);
+
+            var headerRecord = csv.HeaderRecord;
+            int columnCount = headerRecord.Length;
+
+            csv.NextRecord();
+            for (int i = 0; i < columnCount; i++)
+            {
+                csv.WriteField("");
+            }
+            csv.WriteField("Encrypted Password");
+            csv.NextRecord();
+            for (int i = 0; i < columnCount; i++)
+            {
+                csv.WriteField("");
+            }
+            csv.WriteField(_context.Get().Password);
         }
         Notification.ShowNotification(ToolTipIcon.Info, 3000, "Export CSV", "Exported to your desktop");
     }

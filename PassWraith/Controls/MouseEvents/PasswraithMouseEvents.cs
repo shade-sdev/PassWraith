@@ -123,7 +123,8 @@ namespace PassWraith.Controls.MouseEvents
                     await ClearFlpMain();
                     await Load(filterType);
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -214,10 +215,15 @@ namespace PassWraith.Controls.MouseEvents
                 await LoadPasswordHeadsAsync(passwords)
                     .ContinueWith(async task =>
                     {
-                        await ClickFirstControl();
+                        if (CURRENT_PAGE == 1)
+                        {
+                            await ClickFirstControl();
+                        }
                     });
-            } catch(Exception e) {
-            MessageBox.Show(e.ToString());
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
 
 
@@ -325,6 +331,7 @@ namespace PassWraith.Controls.MouseEvents
 
             });
             await ClearFlpMain();
+            PAGE_SIZE = 1;
             await Load(filterType);
         }
 
@@ -337,6 +344,7 @@ namespace PassWraith.Controls.MouseEvents
 
             });
             await ClearFlpMain();
+            PAGE_SIZE = 1;
             await Load(filterType);
         }
 
@@ -486,7 +494,7 @@ namespace PassWraith.Controls.MouseEvents
                     IS_DATA_LOADING = true;
 
                     CURRENT_PAGE = CURRENT_PAGE + 1;
-                    await Load(this.filterType);
+                    await Load(filterType);
                     IS_DATA_LOADING = false;
                 }
             }

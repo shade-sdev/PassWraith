@@ -55,7 +55,7 @@ namespace PassWraith.Utilities
             {
                 return false;
             }
-            string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".ico" };
+            string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".ico", ".svg" };
             string lowercaseExtension = extension.ToLowerInvariant();
             return imageExtensions.Contains(lowercaseExtension);
         }

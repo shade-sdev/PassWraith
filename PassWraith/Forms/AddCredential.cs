@@ -121,6 +121,7 @@ namespace PassWraith.Forms
             _ = BuildEntity().Id == 0 ? _context.Save(BuildEntity()) : _context.Update(BuildEntity().Id, BuildEntity());
             var passWraithForm = Application.OpenForms.OfType<PassWraith>().FirstOrDefault();
             await passWraithForm.mouseEvents.ClearFlpMain();
+            passWraithForm.mouseEvents.CURRENT_PAGE = 1;
             await passWraithForm.mouseEvents.Load(passWraithForm.mouseEvents.filterType);
             saveProgress.Visible = false;
             Close();

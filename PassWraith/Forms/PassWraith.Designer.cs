@@ -443,7 +443,7 @@ namespace PassWraith
             // 
             this.txtNotes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNotes.DefaultText = resources.GetString("txtNotes.DefaultText");
+            this.txtNotes.DefaultText = "Passwraith secure vault";
             this.txtNotes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -529,7 +529,7 @@ namespace PassWraith
             this.dispLblWebsiteName.Name = "dispLblWebsiteName";
             this.dispLblWebsiteName.Size = new System.Drawing.Size(344, 15);
             this.dispLblWebsiteName.TabIndex = 4;
-            this.dispLblWebsiteName.Text = "shade.ga";
+            this.dispLblWebsiteName.Text = "passwraith.com";
             // 
             // dispLblWebsiteTitle
             // 
@@ -676,7 +676,7 @@ namespace PassWraith
             this.dispLblUsername.Name = "dispLblUsername";
             this.dispLblUsername.Size = new System.Drawing.Size(344, 15);
             this.dispLblUsername.TabIndex = 4;
-            this.dispLblUsername.Text = "shade@shade.ga";
+            this.dispLblUsername.Text = "shade@passwraith.com";
             // 
             // dispLblUsernameTitle
             // 
@@ -745,13 +745,13 @@ namespace PassWraith
             this.lblDisplayWebsiteName.Name = "lblDisplayWebsiteName";
             this.lblDisplayWebsiteName.Size = new System.Drawing.Size(252, 27);
             this.lblDisplayWebsiteName.TabIndex = 1;
-            this.lblDisplayWebsiteName.Text = "Adobe";
+            this.lblDisplayWebsiteName.Text = "Passwraith";
             // 
             // displayPicBox
             // 
             this.displayPicBox.BorderRadius = 2;
             this.displayPicBox.FillColor = System.Drawing.Color.Transparent;
-            this.displayPicBox.Image = global::PassWraith.Properties.Resources.icons8_adobe_photoshop_96px;
+            this.displayPicBox.Image = global::PassWraith.Properties.Resources._00016;
             this.displayPicBox.ImageRotate = 0F;
             this.displayPicBox.Location = new System.Drawing.Point(7, 0);
             this.displayPicBox.Name = "displayPicBox";
